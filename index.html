@@ -244,22 +244,20 @@
                     私たちは、2026年の本格始動に先駆け、クリスマスに特別プロジェクトを実施することを決意しました。これは、日本とフィリピンが手を取り合い、未来の笑顔を作るための第一歩です。
                 </p>
 
-                <!-- 修正: 支援活動の写真ギャラリー (2枚構成) -->
-                <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- 修正: 支援活動の写真ギャラリー (縦並び) -->
+                <div class="mt-8 flex flex-col gap-6">
                     <!-- 1枚目: 写真 (liloan.jpg) -->
-                    <div class="rounded-lg overflow-hidden shadow-md h-64 bg-gray-100 relative group">
-                        <img src="liloan.jpg" alt="Liloan Relief Efforts" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                    <div class="rounded-lg overflow-hidden shadow-md bg-gray-100 relative group">
+                        <!-- 高さを自動(w-full h-auto)にして文字切れを防ぐ -->
+                        <img src="liloan.jpg" alt="Liloan Relief Efforts" class="w-full h-auto object-contain transition duration-500 group-hover:scale-105">
                     </div>
                     
                     <!-- 2枚目: 写真 (support2.jpg) -->
-                    <div class="rounded-lg overflow-hidden shadow-md h-64 bg-gray-100 relative group">
-                        <!-- 
-                            ★2枚目の写真を「support2.jpg」という名前でアップロードしてください★ 
-                            (現在はプレースホルダー画像が表示される設定になっています)
-                        -->
+                    <div class="rounded-lg overflow-hidden shadow-md bg-gray-100 relative group">
+                        <!-- support2.jpg があれば表示、なければダミー -->
                         <img src="support2.jpg" 
                              alt="Support Activity 2" 
-                             class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                             class="w-full h-auto object-contain transition duration-500 group-hover:scale-105"
                              onerror="this.src='https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1000&q=80';">
                     </div>
                 </div>
