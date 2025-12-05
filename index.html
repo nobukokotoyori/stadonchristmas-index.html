@@ -79,13 +79,13 @@
         <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
             <!-- ロゴ -->
             <div class="flex items-center gap-2 md:gap-4">
-                <!-- 修正: flex-col を flex-row に変更し、items-center を追加 -->
-                <div class="flex flex-row items-center gap-2 md:gap-3">
+                <!-- 復元: スマホは flex-col (縦並び) -->
+                <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
                     <div class="text-white font-bold text-xs md:text-lg tracking-tighter border-2 border-white px-1.5 py-0.5 md:px-2 md:py-0.5 leading-tight">
                         UZUSHIO<span class="text-[10px] block font-normal md:inline md:ml-1">Holdings</span>
                     </div>
-                    <!-- 修正: hidden を削除してスマホでも×を表示 -->
-                    <span class="text-gray-400 text-xs md:text-base">×</span>
+                    <!-- スマホでは非表示 -->
+                    <span class="text-gray-400 hidden md:block text-base">×</span>
                     <div class="text-white font-bold text-xs md:text-lg tracking-tighter border-2 border-white px-1.5 py-0.5 md:px-2 md:py-0.5 leading-tight">
                         UZU PH<span class="text-[10px] block font-normal md:inline md:ml-1">Enterprises Inc.</span>
                     </div>
@@ -460,11 +460,11 @@
                     <p class="text-sm text-gray-500" data-i18n="pay_step1_desc">あなたの500円</p>
                 </div>
 
-                <!-- スマホ用: 飛行機 (SVG 線画・下向き) - 修正箇所 -->
+                <!-- 修正: スマホ用 飛行機アイコン (SVG線画・下向き) -->
                 <div class="md:hidden text-center text-4xl text-xmas-gold -my-4 z-0 flex justify-center">
                     <!-- ジェット機シルエットSVG (下向き) -->
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-xmas-gold transform rotate-180">
-                        <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                        <path d="M2 12h19.8m-6.8-7 7 7-7 7M12 7l-4-4-5 2 3 9-3 9 5 2 4-4" />
                     </svg>
                 </div>
 
@@ -749,8 +749,8 @@
                 close_title_2: "We are waiting for your warm support.",
                 close_p: "If this SUTADONYA container restaurant starts full-scale operation in January next year, we can support their lives in a more sustainable way. This Christmas project is an important bridge to that future.<br><br>Put Japan's hot cheers on hot Sutadon.<br>Let's give unforgettable Christmas smiles to children and families in Cebu Island together.",
                 close_btn_main: "Agree with this feeling and give Sutadon for Christmas",
-                close_btn_sub: "（1枚 500円から購入可能です）",
-                footer_tokusho: "特定商取引法に基づく表記",
+                close_btn_sub: "(Available for purchase from 500 yen per ticket)",
+                footer_tokusho: "Notation based on the Specified Commercial Transactions Act",
                 footer_privacy: "Privacy Policy",
             },
             en: {
