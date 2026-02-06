@@ -108,6 +108,8 @@
             background-color: #000;
             color: #fff;
             overflow: hidden;
+            /* Ensure it has a z-index but allows scrolling */
+            z-index: 100;
         }
         .manifest-text {
             opacity: 0;
@@ -234,7 +236,7 @@
         </div>
     </section>
 
-    <!-- Sponsors Section (Logos) -->
+    <!-- Sponsors Section -->
     <section class="py-12 bg-white border-b border-gray-100">
         <div class="container mx-auto px-4 text-center">
             <p class="text-sakura-accent font-oswald text-xs md:text-sm tracking-[0.2em] uppercase mb-8 opacity-80" data-i18n="sponsors_label">Official Sponsors</p>
@@ -373,7 +375,8 @@
 
     <!-- MANIFESTO -->
     <div id="manifest-root" class="relative z-[100]">
-        <div id="manifest-content" class="h-screen w-full flex items-center justify-center sticky top-0 overflow-hidden">
+        <!-- Removed "sticky" to let GSAP handle pinning -->
+        <div id="manifest-content" class="h-screen w-full flex items-center justify-center top-0 overflow-hidden">
             <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] bg-cover bg-center opacity-20 filter blur-sm transition-opacity duration-1000" id="manifest-bg"></div>
             <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
             
@@ -501,6 +504,7 @@
     <section class="py-20 bg-gray-50 border-b border-gray-200">
         <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
             <div class="md:w-1/2 w-full">
+                <!-- Changed to YouTube Video with Aspect Ratio -->
                 <div class="relative rounded-2xl overflow-hidden shadow-xl group w-full aspect-video border border-gray-200">
                     <iframe 
                         class="absolute inset-0 w-full h-full" 
@@ -510,6 +514,7 @@
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         allowfullscreen>
                     </iframe>
+                    <!-- Overlay Text -->
                     <div class="absolute inset-0 bg-gradient-to-t from-uzu-blue/90 via-transparent to-transparent pointer-events-none"></div>
                     <div class="absolute bottom-0 left-0 w-full p-6 md:p-8 pointer-events-none">
                         <span class="text-gold-accent font-oswald text-xs md:text-sm tracking-widest uppercase block mb-1 shadow-black drop-shadow-md" data-i18n="venue_label">Special Venue Partner</span>
@@ -549,6 +554,7 @@
 
         <div class="max-w-7xl mx-auto px-4 relative z-10">
             <div class="text-center mb-16">
+                <!-- Updated Label -->
                 <span class="text-sakura-accent font-bold tracking-widest uppercase mb-2 block" data-i18n="harmony_label">Why A Story of Hope?</span>
                 <h2 class="text-3xl md:text-5xl font-bold text-uzu-blue mb-4 font-mincho leading-tight">
                     <span data-i18n="harmony_title">10,000の「想い」が、<br>希望の扉を開く。</span>
@@ -560,11 +566,12 @@
                 
                 <!-- Left: Harmony Image & Intro -->
                 <div class="space-y-8">
+                    <!-- Harmony Image Card -->
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl group aspect-[4/5] lg:aspect-auto lg:h-[600px]">
-                        <img src="harmony_singer.jpg" 
-                             onerror="this.src='https://images.unsplash.com/photo-1516280440614-6697288d5d38?q=80&w=2070&auto=format&fit=crop'" 
+                        <!-- Updated Image to the requested one with proper class for rendering -->
+                        <img src="https://images.unsplash.com/photo-1516280440614-6697288d5d38?auto=format&fit=crop&q=80&w=1000" 
                              alt="Artist Harmony" 
-                             class="w-full h-full object-cover transform transition duration-700 group-hover:scale-105">
+                             class="w-full h-full object-cover transform transition duration-700 group-hover:scale-105 filter grayscale brightness-75 contrast-125">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                         
                         <div class="absolute bottom-0 left-0 p-6 md:p-8 text-white">
@@ -631,6 +638,7 @@
                             <div>
                                 <p class="text-[10px] text-gold-accent font-bold uppercase tracking-widest mb-1">Official Site</p>
                                 <h4 class="text-white font-bold text-xl font-oswald leading-none mb-1">A Story of Hope<br><span class="text-lg font-serif font-normal">Concert</span></h4>
+                                <!-- Added Date & Time -->
                                 <p class="text-sakura-main text-xs font-bold tracking-wide font-oswald flex items-center">
                                     <i class="far fa-clock mr-1"></i> 2026.3.27 (Fri) 17:00~
                                 </p>
@@ -655,16 +663,20 @@
 
         <div class="container mx-auto px-4 relative z-10">
             <div class="text-center mb-16">
+                <!-- Updated Label -->
                 <span class="text-gold-accent text-sm tracking-[0.2em] uppercase border border-gold-accent/50 px-4 py-1 rounded-full" data-i18n="biz_label">For Sponsors</span>
+                <!-- Updated Title -->
                 <h2 class="text-3xl md:text-5xl font-bold mt-6 font-mincho">
                     <span data-i18n="biz_title">日本から世界へ。「和」の精神を届ける<br>共創パートナーシップ。</span>
                 </h2>
+                <!-- Updated Description -->
                 <p class="text-gray-300 mt-6 max-w-4xl mx-auto text-lg leading-relaxed" data-i18n="biz_desc">
                     SAKURA BLOOM 2026は、単なるイベントスポンサーシップではありません。それは、貴社の製品やサービス、そして企業理念を、国境を越えた「希望の物語」の一部として世界に届ける機会です。<br><br>
                     セブ、日本、ハワイ。この「和」の連鎖の中で、日本の誇るべき技術や文化、精神性を世界の人々と分かち合う。売上の数字以上に、どれだけの人々の心を動かし、未来への信頼を築けるか。その価値を共有し、共に新しい経済の形（Humanitarian Economy）を実証するパートナーと共に歩みたいと考えています。
                 </p>
             </div>
 
+            <!-- Updated Grid: 4 Columns for 4 Items -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
                 <!-- Opportunity 1 -->
                 <div class="bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition group hover:-translate-y-2">
@@ -673,7 +685,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3 font-mincho" data-i18n="biz_opt1_title">The Ohanami Experience</h3>
                     <p class="text-sm text-gray-400 leading-relaxed" data-i18n="biz_opt1_desc">
-                        桜の下での文化交流。貴社の「おもてなし」の心が、国境を越えた笑顔を生み出します。体験を通じて、言葉を超えたファンの輪を広げます。
+                        桜の下で生まれる、心温まる文化交流。貴社の「おもてなし」が、国境を越えた笑顔を咲かせます。体験を通じて、言葉を超えた貴社のファンの輪を広げます。
                     </p>
                 </div>
 
@@ -688,7 +700,7 @@
                     </p>
                 </div>
 
-                <!-- Opportunity 3 -->
+                <!-- Opportunity 3 (NEW: Workshop) -->
                 <div class="bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition group hover:-translate-y-2">
                     <div class="text-4xl text-yellow-400 mb-4 group-hover:scale-110 transition duration-300">
                         <i class="fas fa-hands-holding-circle"></i>
@@ -699,7 +711,7 @@
                     </p>
                 </div>
 
-                <!-- Opportunity 4 -->
+                <!-- Opportunity 4 (Updated: Shop & Ads with April note) -->
                 <div class="bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition group hover:-translate-y-2">
                     <div class="text-4xl text-fresh-green mb-4 group-hover:scale-110 transition duration-300">
                         <i class="fas fa-store"></i>
@@ -807,6 +819,7 @@
                                 <div class="mb-3 pb-3 border-b border-white/20">
                                     <h4 class="font-bold text-lg text-gold-accent">SUTADON Grand Opening</h4>
                                     <span class="text-[10px] text-gray-300">11:00 - Ribbon Cutting Ceremony</span>
+                                    <p class="text-[10px] text-gray-400 mt-1 italic">Media coverage & Press invited</p>
                                 </div>
                                 <div class="mb-3">
                                     <h4 class="font-bold text-lg text-sakura-main">A Story of Hope Concert</h4>
@@ -832,7 +845,7 @@
                         
                         <div class="grid grid-cols-1 gap-4">
                             <!-- Global Samurai -->
-                            <div class="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden flex flex-row hover:shadow-md transition h-28">
+                            <div class="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden flex flex-row hover:shadow-md transition h-auto min-h-[7rem]">
                                 <div class="w-28 bg-gray-100 relative shrink-0">
                                     <img src="globalsamurai.jpg" alt="Global Samurai" class="absolute inset-0 w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1582657386227-d463283b7f16?q=80&w=2070&auto=format&fit=crop'">
                                 </div>
@@ -840,7 +853,7 @@
                                     <div class="flex justify-between items-start mb-1">
                                         <h4 class="font-bold text-sm text-uzu-blue" data-i18n="ex_samurai_title">Global Samurai: 浴衣体験 & 日本酒</h4>
                                     </div>
-                                    <p class="text-[10px] text-gray-600 mb-2 leading-snug line-clamp-2" data-i18n="ex_samurai_desc">
+                                    <p class="text-[10px] text-gray-600 mb-2 leading-snug" data-i18n="ex_samurai_desc">
                                         日本の伝統的な着付け体験と、厳選された日本酒の試飲をお楽しみいただけます。期間中毎日開催。
                                     </p>
                                     <a href="https://www.instagram.com/globalsamurais?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-[10px] font-bold text-pink-500 hover:text-pink-600 flex items-center gap-1">
@@ -850,13 +863,13 @@
                             </div>
 
                             <!-- Shining Planner -->
-                            <div class="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden flex flex-row hover:shadow-md transition h-28">
+                            <div class="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden flex flex-row hover:shadow-md transition h-auto min-h-[7rem]">
                                 <div class="w-28 bg-gray-100 relative shrink-0">
                                     <img src="anime_event.jpg" alt="Anime Festival" class="absolute inset-0 w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1613376023733-0a73315d9b06?q=80&w=2070&auto=format&fit=crop'">
                                 </div>
                                 <div class="p-3 flex flex-col justify-center flex-grow">
                                     <h4 class="font-bold text-sm text-uzu-blue mb-1" data-i18n="ex_anime_title">Shining Planner: アニメ祭り</h4>
-                                    <p class="text-[10px] text-gray-600 mb-2 leading-snug line-clamp-2" data-i18n="ex_anime_desc">
+                                    <p class="text-[10px] text-gray-600 mb-2 leading-snug" data-i18n="ex_anime_desc">
                                         アニメ好きによるグッズ展示とキャラクターに触れ合える機会を提供。現代日本文化の熱狂を共有します。
                                     </p>
                                     <a href="https://flowerangel.org/test_shining_planner" target="_blank" class="text-[10px] font-bold text-sakura-accent hover:underline flex items-center gap-1">
@@ -866,13 +879,13 @@
                             </div>
 
                             <!-- Chef Miyata -->
-                            <div class="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden flex flex-row hover:shadow-md transition h-28">
+                            <div class="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden flex flex-row hover:shadow-md transition h-auto min-h-[7rem]">
                                 <div class="w-28 bg-gray-100 relative shrink-0">
                                     <img src="chef_miyata.jpg" alt="Chef Miyata" class="absolute inset-0 w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop'">
                                 </div>
                                 <div class="p-3 flex flex-col justify-center flex-grow">
                                     <h4 class="font-bold text-sm text-uzu-blue mb-1" data-i18n="ex_chef_title">Chef Miyata × Tamara Rice</h4>
-                                    <p class="text-[10px] text-gray-600 mb-2 leading-snug line-clamp-2" data-i18n="ex_chef_desc">
+                                    <p class="text-[10px] text-gray-600 mb-2 leading-snug" data-i18n="ex_chef_desc">
                                         元ミシュラン三つ星シェフによるフレンチ×セブの融合料理と、日本各地原産の具材を使ったお結びを提供。
                                     </p>
                                     <a href="https://flowerangel.org/takumamiyata_tamararice" target="_blank" class="text-[10px] font-bold text-sakura-accent hover:underline flex items-center gap-1">
@@ -882,7 +895,7 @@
                             </div>
 
                             <!-- MACOMO -->
-                            <div class="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden flex flex-row hover:shadow-md transition h-28">
+                            <div class="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden flex flex-row hover:shadow-md transition h-auto min-h-[7rem]">
                                 <div class="w-28 bg-gray-100 relative shrink-0">
                                     <img src="macomo_header.jpg" 
                                          alt="MACOMO by MACCO" 
@@ -891,7 +904,7 @@
                                 </div>
                                 <div class="p-3 flex flex-col justify-center flex-grow">
                                     <h4 class="font-bold text-sm text-uzu-blue mb-1" data-i18n="ex_macomo_title">MACOMO by MACCO</h4>
-                                    <p class="text-[10px] text-gray-600 mb-2 leading-snug line-clamp-2" data-i18n="ex_macomo_desc">
+                                    <p class="text-[10px] text-gray-600 mb-2 leading-snug" data-i18n="ex_macomo_desc">
                                         日本伝統に深く根ざした聖なる植物「真菰（マコモ）」の魅力を紹介。古来より続く自然との共生を伝えます。
                                     </p>
                                     <a href="https://flowerangel.org/macomobymacco" target="_blank" class="text-[10px] font-bold text-sakura-accent hover:underline flex items-center gap-1">
@@ -901,7 +914,7 @@
                             </div>
 
                             <!-- KABILIN (Bohol) -->
-                            <div class="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden flex flex-row hover:shadow-md transition h-28">
+                            <div class="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden flex flex-row hover:shadow-md transition h-auto min-h-[7rem]">
                                 <div class="w-28 bg-gray-100 relative shrink-0 group">
                                     <img src="https://img.youtube.com/vi/eLyIDxTTiHM/hqdefault.jpg" alt="Bohol Ocean" class="absolute inset-0 w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1544252899-7561849a622f?q=80&w=1974&auto=format&fit=crop'">
                                     <div class="absolute inset-0 flex items-center justify-center group-hover:bg-black/10 transition">
@@ -910,15 +923,12 @@
                                 </div>
                                 <div class="p-3 flex flex-col justify-center flex-grow">
                                     <h4 class="font-bold text-sm text-uzu-blue mb-1" data-i18n="ex_bohol_title">KABILIN (Legacy): ボホール海洋保護</h4>
-                                    <p class="text-[10px] text-gray-600 mb-2 leading-snug line-clamp-2" data-i18n="ex_bohol_desc">
+                                    <p class="text-[10px] text-gray-600 mb-3 leading-snug" data-i18n="ex_bohol_desc">
                                         珊瑚礁再生やマングローブ保護、Fish Cageによる雇用創出。美しい海という遺産を次世代へ繋ぐプロジェクト。
                                     </p>
-                                    <!-- Updated Link Text and Margin -->
-                                    <div class="mt-2">
-                                        <a href="https://youtu.be/eLyIDxTTiHM" target="_blank" class="text-[10px] font-bold text-red-600 hover:text-red-700 flex items-center gap-1">
-                                            <i class="fab fa-youtube"></i> Watch Activity (2025)
-                                        </a>
-                                    </div>
+                                    <a href="https://youtu.be/eLyIDxTTiHM" target="_blank" class="text-[10px] font-bold text-red-600 hover:text-red-700 flex items-center gap-1">
+                                        <i class="fab fa-youtube"></i> Watch Activity (2025)
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -1374,7 +1384,7 @@
                 biz_title: "日本から世界へ。「和」の精神を届ける<br>共創パートナーシップ。",
                 biz_desc: "SAKURA BLOOM 2026は、単なるイベントスポンサーシップではありません。それは、貴社の製品やサービス、そして企業理念を、国境を越えた「希望の物語」の一部として世界に届ける機会です。<br><br>セブ、日本、ハワイ。この「和」の連鎖の中で、日本の誇るべき技術や文化、精神性を世界の人々と分かち合う。売上の数字以上に、どれだけの人々の心を動かし、未来への信頼を築けるか。その価値を共有し、共に新しい経済の形（Humanitarian Economy）を実証するパートナーと共に歩みたいと考えています。",
                 biz_opt1_title: "The Ohanami Experience",
-                biz_opt1_desc: "桜の下で生まれる、心温まる文化交流。貴社の「おもてなし」の心が、国境を越えた笑顔を生み出します。体験を通じて、言葉を超えた貴社のファンの輪を広げます。",
+                biz_opt1_desc: "桜の下で生まれる、心温まる文化交流。貴社の「おもてなし」が、国境を越えた笑顔を咲かせます。体験を通じて、言葉を超えた貴社のファンの輪を広げます。",
                 biz_opt2_title: "KIZUNA Exhibition",
                 biz_opt2_desc: "お花見、日本酒、占い、そしてボホール海洋保護プロジェクト「KABILIN (Legacy)」を特別展示（3/23-27）。珊瑚礁再生や雇用創出など、美しい海を次世代へ繋ぐ活動を共に発信します。",
                 biz_opt3_title: "KIZUNA Workshop",
