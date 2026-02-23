@@ -36,7 +36,6 @@
     <style>
         html { scroll-behavior: smooth; }
         
-        /* 幾何学的な結晶パターン背景 */
         .crystal-grid {
             background-image: linear-gradient(30deg, rgba(255, 183, 197, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(255, 183, 197, 0.05) 87.5%, rgba(255, 183, 197, 0.05)),
                               linear-gradient(150deg, rgba(255, 183, 197, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(255, 183, 197, 0.05) 87.5%, rgba(255, 183, 197, 0.05)),
@@ -48,25 +47,28 @@
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
         }
         
-        /* シャープなカード・コーナー装飾 */
         .sharp-edge-card {
             position: relative;
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s ease;
+        }
+        .sharp-edge-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 183, 197, 0.3);
         }
         .corner-accent {
-            position: absolute; width: 15px; height: 15px;
+            position: absolute; width: 10px; height: 10px;
         }
-        .corner-tl { top: -2px; left: -2px; border-top: 3px solid #ffb7c5; border-left: 3px solid #ffb7c5; }
-        .corner-br { bottom: -2px; right: -2px; border-bottom: 3px solid #ffb7c5; border-right: 3px solid #ffb7c5; }
+        .corner-tl { top: -2px; left: -2px; border-top: 2px solid #ffb7c5; border-left: 2px solid #ffb7c5; }
+        .corner-br { bottom: -2px; right: -2px; border-bottom: 2px solid #ffb7c5; border-right: 2px solid #ffb7c5; }
 
-        /* 背景の光の筋（ライトビーム） */
         .light-beam {
             position: absolute;
             width: 150%;
             height: 1px;
-            background: linear-gradient(to right, transparent, rgba(255, 183, 197, 0.3), transparent);
+            background: linear-gradient(to right, transparent, rgba(255, 183, 197, 0.2), transparent);
             transform-origin: center;
         }
 
@@ -80,233 +82,180 @@
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
         }
 
-        .lang-en { font-size: 0.85em; opacity: 0.7; letter-spacing: 0.05em; font-weight: 400; text-transform: uppercase; }
-        
-        /* ホバーアニメーション */
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
+        .lang-en { font-size: 0.8em; opacity: 0.6; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 400; }
     </style>
 </head>
 <body class="font-sans text-gray-800 antialiased bg-white overflow-x-hidden">
 
-    <!-- ヘッダーなし（没入型） -->
-
-    <!-- 【Hero Section】 希望の渦 (UZU) -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-uzu-blue text-white">
+    <!-- 【Hero Section】 没入型 / スクロール抑制のため高さを調整 -->
+    <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-uzu-blue text-white">
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1518544801976-3e159e50e5bb?auto=format&fit=crop&q=80&w=2000" alt="Ocean Night" class="w-full h-full object-cover opacity-20" onerror="this.parentElement.style.background='linear-gradient(45deg, #0a1f4d, #000)'">
             <div class="absolute inset-0 crystal-grid opacity-20"></div>
             <div class="absolute inset-0 bg-gradient-to-b from-uzu-blue/40 via-uzu-blue/80 to-uzu-blue text-glow"></div>
-            <div class="light-beam top-1/4 left-[-25%] rotate-12"></div>
-            <div class="light-beam top-3/4 left-[-25%] -rotate-6"></div>
         </div>
 
         <div class="relative z-10 container mx-auto px-4 text-center">
-            <div class="inline-block border border-uzu-gold bg-uzu-gold/5 px-8 py-2 mb-10 text-uzu-gold font-bold tracking-[0.6em] uppercase text-xs">
+            <div class="inline-block border border-uzu-gold bg-uzu-gold/5 px-4 py-1 mb-6 text-uzu-gold font-bold tracking-[0.5em] uppercase text-[9px]">
                 Humanitarian Economy
             </div>
-            <h1 class="text-5xl md:text-8xl lg:text-9xl font-black mb-8 leading-tight font-serif tracking-tighter uppercase text-glow">
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight font-serif tracking-tighter uppercase text-glow">
                 和を以て、世界を癒やす。
             </h1>
-            <p class="text-xl md:text-4xl font-oswald mb-12 text-sakura-pink tracking-[0.4em] font-bold uppercase italic opacity-80">
+            <p class="text-base md:text-xl font-oswald mb-8 text-sakura-pink tracking-[0.3em] font-bold uppercase italic opacity-80">
                 Whirlpool of Hope & Economy
             </p>
-            <div class="max-w-4xl mx-auto opacity-95 leading-relaxed mb-16 font-sans">
-                <p class="text-xl md:text-3xl font-light tracking-[0.1em] mb-4 text-glow">
+            <div class="max-w-2xl mx-auto opacity-95 leading-relaxed mb-10 font-sans">
+                <p class="text-base md:text-lg font-light tracking-[0.05em] mb-3 text-glow">
                     目に見える・目に見えない「日本の価値」と共に。<br>
                     衣食住を支え、<span class="text-uzu-gold font-bold uppercase tracking-widest">希望の渦（UZU）</span>を作る UZU WORLD。
                 </p>
-                <p class="lang-en text-sm md:text-lg italic opacity-40 max-w-2xl mx-auto">
-                    Transforming Japanese values into global economic healing.<br>
-                    Supporting life's foundations to create a Whirlpool of Hope and economy.
-                </p>
             </div>
             
-            <a href="#future" class="group relative inline-block border border-sakura-pink/50 text-sakura-pink font-black py-6 px-16 md:py-8 md:px-24 transition-all duration-300 backdrop-blur-sm w-full md:w-auto text-xl md:text-3xl uppercase tracking-[0.2em] border-l-[12px] active:scale-95 hover:bg-sakura-pink/10">
-                <span class="relative z-10 flex flex-col items-center leading-none">
-                    <span>3月の未来へ <i class="fas fa-chevron-right ml-4 text-xl group-hover:translate-x-4 transition-transform"></i></span>
-                    <span class="text-[10px] md:text-[12px] mt-3 font-bold opacity-60 tracking-[0.4em]">Sakura Bloom 2026</span>
+            <a href="#content-hub" class="group relative inline-block border border-sakura-pink/40 text-sakura-pink font-black py-3 px-10 transition-all duration-300 backdrop-blur-sm text-sm uppercase tracking-[0.2em] border-l-[6px] hover:bg-sakura-pink/10">
+                <span class="relative z-10 flex flex-col items-center">
+                    <span>Explore the UZU <i class="fas fa-chevron-down ml-2 animate-bounce"></i></span>
                 </span>
             </a>
         </div>
     </section>
 
-    <!-- 【Philosophy】 経済と真髄 -->
-    <section id="philosophy" class="py-32 bg-white relative overflow-hidden">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <h2 class="text-2xl md:text-4xl font-black text-uzu-blue mb-20 flex flex-col items-center uppercase">
-                <span class="text-uzu-gold text-sm tracking-[1em] mb-4 font-oswald uppercase font-bold">Economic Paradigm Shift</span>
-                人道経済（HUMANITARIAN ECONOMY）の真髄
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch bg-gray-50 border border-gray-100 shadow-2xl relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-uzu-gold"></div>
-                <div class="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-uzu-gold"></div>
-
-                <div class="text-left font-serif text-gray-800 p-12 md:p-24 md:border-r border-gray-200 flex flex-col justify-center bg-white">
-                    <p class="text-xl md:text-3xl leading-loose italic relative mb-10">
-                        <i class="fas fa-quote-left text-uzu-gold/20 text-7xl absolute -top-16 -left-8"></i>
-                        「現代の資本主義をただ継続するだけでは、人間の衣食住と幸福感を確保することは難しい。だからこそ、資本が人間のためにしっかり使われるように。私たちは日本の価値を使って、それを世界に表現していきたいのです。」
+    <!-- 【Philosophy】 コンパスのように要点を提示 -->
+    <section id="philosophy" class="py-12 bg-white relative">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-8 bg-gray-50 border border-gray-100 p-8 shadow-sm relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-uzu-gold"></div>
+                <div class="md:w-1/2 text-left">
+                    <span class="text-uzu-gold text-[9px] tracking-[0.5em] mb-2 font-oswald uppercase font-bold block">Philosophy</span>
+                    <p class="text-base md:text-lg font-serif italic leading-relaxed text-gray-800">
+                        「現代の資本主義をただ継続するだけでは、人間の幸福感を確保することは難しい。資本が人間のために使われるよう、日本の価値を世界に表現したいのです。」
                     </p>
-                    <div class="h-1 w-32 bg-uzu-gold"></div>
                 </div>
-                <div class="text-left font-sans text-gray-600 lang-en italic p-12 md:p-24 flex flex-col justify-center gap-8 bg-gray-50/50">
-                    <p class="text-lg md:text-xl leading-relaxed">
-                        "Traditional capitalism alone cannot sustain human dignity. Our mission is to integrate <span class="text-uzu-blue font-bold text-glow italic">Healing</span> and <span class="text-uzu-blue font-bold text-glow italic">Hope</span> directly into the <span class="text-uzu-blue font-bold text-glow italic">Economy</span>. We rebuild the whirlpool of life through Japanese values."
+                <div class="md:w-1/2 text-left border-l border-gray-200 pl-8">
+                    <p class="lang-en text-[10px] italic leading-relaxed text-gray-500">
+                        Traditional capitalism alone cannot sustain dignity. Our mission is to integrate Healing and Hope directly into the Economy.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 【Report Video】 経済的支援の具現化 -->
-    <section class="py-32 bg-uzu-blue text-white overflow-hidden relative border-y border-white/10 text-glow">
+    <!-- 【Main Content Hub】 3つの要素を横並びに集約 -->
+    <section id="content-hub" class="py-16 bg-uzu-blue text-white overflow-hidden relative border-y border-white/5">
         <div class="absolute inset-0 crystal-grid opacity-10"></div>
-        <div class="container mx-auto px-4 relative z-10 text-center">
-            <h2 class="text-4xl md:text-7xl font-black font-serif mb-6 tracking-tighter uppercase">2025 Special Report</h2>
-            <p class="text-uzu-gold font-bold tracking-[0.4em] mb-16 uppercase text-[12px] italic tracking-widest">Manifestation of Economic Healing</p>
+        <div class="container mx-auto px-4 relative z-10">
             
-            <div class="max-w-6xl mx-auto relative bg-black shadow-[0_0_100px_rgba(0,0,0,0.7)] border border-white/10 group overflow-hidden">
-                <div class="absolute -top-1 -left-1 w-16 h-16 border-t-2 border-l-2 border-uzu-gold z-20"></div>
-                <div class="absolute -bottom-1 -right-1 w-16 h-16 border-b-2 border-r-2 border-uzu-gold z-20"></div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
                 
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/eLyIDxTTiHM" title="2025 Report" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-            </div>
-
-            <div class="mt-20 max-w-4xl mx-auto">
-                <p class="text-xl md:text-4xl font-light opacity-90 leading-relaxed font-serif italic mb-6">
-                    あの日灯した光が、どのように現地の笑顔と<br class="hidden md:block">
-                    <span class="text-uzu-gold font-bold uppercase tracking-widest">「希望の渦（UZU）」</span>に変わったのか。
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 【Project Archive】 -->
-    <section id="projects" class="py-32 bg-gray-50 relative overflow-hidden">
-        <div class="container mx-auto px-4 relative z-10 text-center">
-            <h2 class="text-3xl md:text-5xl font-black text-uzu-blue font-serif tracking-tight uppercase mb-24">Archive of Hope</h2>
-            <div class="max-w-4xl mx-auto font-sans text-left">
-                <div class="bg-white shadow-2xl card-hover transition-all duration-500 flex flex-col md:flex-row border border-gray-100 overflow-hidden relative">
-                    <div class="absolute top-4 right-4 w-6 h-6 border-t border-r border-uzu-gold opacity-20"></div>
-                    <div class="w-full md:w-1/2 h-64 md:h-auto overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=800" alt="Support Project" class="w-full h-full object-cover transition-transform duration-1000 hover:scale-105">
-                        <div class="absolute top-0 left-0 bg-red-700 text-white px-8 py-3 text-[10px] font-black tracking-[0.5em] uppercase shadow-lg">December 2025</div>
-                    </div>
-                    <div class="w-full md:w-1/2 p-10 md:p-16 flex flex-col border-t-[8px] md:border-t-0 md:border-l-[12px] border-red-700/10">
-                        <h3 class="text-2xl md:text-3xl font-black text-uzu-blue mb-6 leading-tight font-serif uppercase tracking-tight">クリスマス緊急企画 in Cebu</h3>
-                        <p class="text-gray-600 leading-loose mb-8 text-lg font-light">
-                            2025年、地震や洪水に苦しむ人々へ、伝説のすた丼を通じて「日本の元気」と「人道経済」の種を届けたプロジェクト。それは未来の笑顔を作るための最初の一歩となりました。
-                        </p>
-                        <a href="https://uzuworld.com/sutadon_christmas2025" class="inline-flex items-center text-uzu-blue font-black border-b-2 border-uzu-gold pb-1 hover:text-uzu-gold transition-all tracking-[0.4em] uppercase text-xs">VIEW PROJECT DETAILS <i class="fas fa-chevron-right ml-4 text-xs"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 【Future Section】 -->
-    <section id="future" class="relative py-48 md:py-72 bg-uzu-blue overflow-hidden text-glow">
-        <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-[#020512]"></div>
-            <div class="absolute inset-0 crystal-grid opacity-30"></div>
-            <div class="absolute inset-0 bg-gradient-to-tr from-uzu-blue via-transparent to-sakura-pink/40"></div>
-            <div class="light-beam top-1/4 left-[-20%] rotate-12 opacity-40"></div>
-            <div class="light-beam top-3/4 left-[-20%] -rotate-6 opacity-40"></div>
-        </div>
-
-        <div class="relative z-10 container mx-auto px-4 text-center">
-            <div class="flex flex-col items-center">
-                <div class="mb-20 text-center relative">
-                    <h2 class="text-sakura-pink text-sm tracking-[2em] mb-8 font-oswald font-bold uppercase italic text-glow">Global Economic Expansion</h2>
-                    <h3 class="text-5xl md:text-[12rem] font-black text-white font-serif leading-none tracking-tighter mb-16 uppercase text-glow">
-                        2026.03<br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-sakura-pink via-white to-sakura-pink font-sans italic tracking-[0.2em] md:tracking-[0.4em] text-3xl md:text-9xl block mt-10 uppercase">Sakura Bloom</span>
-                    </h3>
-                </div>
-                
-                <div class="max-w-6xl mx-auto bg-white/[0.02] backdrop-blur-3xl p-10 md:p-32 border border-white/10 shadow-[0_0_150px_rgba(0,0,0,1)] relative overflow-hidden sharp-edge-card group">
+                <!-- 1. Special Report -->
+                <div class="sharp-edge-card p-6 flex flex-col h-full">
                     <div class="corner-accent corner-tl"></div>
                     <div class="corner-accent corner-br"></div>
-                    
-                    <div class="mb-16 md:mb-24 text-center relative z-10">
-                        <p class="text-white text-xl md:text-5xl leading-tight font-light mb-12 md:mb-16 tracking-[0.05em] font-serif text-glow">
-                            1万食の達成、そして世界経済の癒やしへ。<br>
-                            セブ島にて開催される1万人規模の歴史的コンサート。<br>
-                            <span class="text-sakura-pink font-bold border-l-[10px] md:border-l-[16px] border-sakura-pink pl-6 md:pl-12 py-4 md:py-8 inline-block my-8 md:my-14 bg-white/5 uppercase tracking-[0.2em] md:tracking-[0.3em] text-glow italic">人道経済（Humanitarian Economy）正式ローンチ</span><br>
-                            希望の渦（UZU）を、世界中へ。
-                        </p>
-                        <p class="lang-en text-white/40 text-sm md:text-3xl italic leading-relaxed max-w-4xl mx-auto font-light tracking-[0.1em] md:tracking-[0.2em]">
-                            Witness the global birth of a new economic paradigm. <br>
-                            Expanding the Whirlpool of Hope from Cebu to the World.
-                        </p>
+                    <div class="mb-4">
+                        <span class="text-uzu-gold text-[8px] tracking-[0.4em] font-bold uppercase">Video Report</span>
+                        <h3 class="text-lg font-black font-serif uppercase tracking-tight mt-1">2025 Special Report</h3>
                     </div>
-                    
-                    <a href="https://uzuworld.com/sakurabloom2026" class="inline-flex items-center bg-white text-uzu-blue font-black text-xl md:text-4xl py-8 px-12 md:py-12 md:px-36 shadow-[0_0_80px_rgba(255,183,197,0.5)] transition-all duration-700 hover:-translate-y-5 uppercase tracking-[0.3em] md:tracking-[0.5em] border-l-[16px] md:border-l-[24px] border-sakura-pink active:scale-95 text-glow">
-                        Enter the UZU <i class="fas fa-long-arrow-alt-right ml-6 md:ml-10 opacity-50 group-hover:translate-x-8 transition-all"></i>
-                    </a>
+                    <div class="video-container shadow-2xl mb-4 border border-white/5">
+                        <iframe src="https://www.youtube.com/embed/eLyIDxTTiHM" title="2025 Report" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <p class="text-[11px] font-light leading-relaxed opacity-80 mt-auto">
+                        あの日灯した光が、どのように現地の笑顔と<span class="text-uzu-gold font-bold">「希望の渦（UZU）」</span>に変わったのか。
+                    </p>
                 </div>
-                
-                <div class="mt-32 md:mt-40 flex items-center gap-8 md:gap-16 text-white/10 text-[9px] md:text-[11px] tracking-[1em] md:tracking-[1.5em] font-black uppercase italic">
-                    <span class="w-24 md:w-48 h-[1px] bg-gradient-to-r from-transparent to-white/20"></span>
-                    Powering humanity through values
-                    <span class="w-24 md:w-48 h-[1px] bg-gradient-to-l from-transparent to-white/20"></span>
+
+                <!-- 2. Archive of Hope -->
+                <div class="sharp-edge-card p-6 flex flex-col h-full">
+                    <div class="corner-accent corner-tl"></div>
+                    <div class="corner-accent corner-br"></div>
+                    <div class="mb-4">
+                        <span class="text-uzu-gold text-[8px] tracking-[0.4em] font-bold uppercase">Latest Achievement</span>
+                        <h3 class="text-lg font-black font-serif uppercase tracking-tight mt-1">Archive of Hope</h3>
+                    </div>
+                    <div class="relative overflow-hidden mb-4 border border-white/5 h-40">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=800" alt="Support" class="w-full h-full object-cover">
+                        <div class="absolute top-0 left-0 bg-red-700/90 text-white px-3 py-1 text-[7px] font-black tracking-widest uppercase">Dec 2025</div>
+                    </div>
+                    <h4 class="text-sm font-bold mb-2 text-sakura-pink">クリスマス緊急企画 in Cebu</h4>
+                    <p class="text-[11px] font-light leading-relaxed opacity-80 mb-4">
+                        伝説のすた丼を通じて「日本の元気」を届け、未来の笑顔を作るための最初の一歩を刻みました。
+                    </p>
+                    <a href="https://uzuworld.com/sutadon_christmas2025" class="mt-auto inline-flex items-center text-[9px] font-black border-b border-uzu-gold/50 pb-0.5 hover:text-uzu-gold transition-all tracking-[0.2em] uppercase">VIEW DETAILS <i class="fas fa-chevron-right ml-2"></i></a>
                 </div>
+
+                <!-- 3. Global Economic Expansion / Sakura Bloom -->
+                <div class="sharp-edge-card p-6 flex flex-col h-full border-l-2 border-l-sakura-pink/30">
+                    <div class="corner-accent corner-tl"></div>
+                    <div class="corner-accent corner-br"></div>
+                    <div class="mb-4">
+                        <span class="text-sakura-pink text-[8px] tracking-[0.4em] font-bold uppercase italic">Future Vision</span>
+                        <h3 class="text-lg font-black font-serif uppercase tracking-tight mt-1">Sakura Bloom 2026</h3>
+                    </div>
+                    <div class="flex flex-col items-center justify-center flex-grow py-4 text-center">
+                        <div class="text-3xl md:text-5xl font-black font-serif mb-2 text-glow">2026.03</div>
+                        <div class="text-xl md:text-2xl font-black text-sakura-pink italic tracking-[0.2em] mb-4 uppercase">Sakura Bloom</div>
+                        <p class="text-[11px] font-light leading-relaxed opacity-80 mb-6 max-w-[200px]">
+                            セブ島にて開催される1万人規模の歴史的コンサート。<br>
+                            <span class="text-white font-bold">人道経済正式ローンチ</span>。
+                        </p>
+                        <a href="https://uzuworld.com/sakurabloom2026" class="bg-white text-uzu-blue font-black text-[10px] py-3 px-8 shadow-lg transition-all hover:-translate-y-1 uppercase tracking-[0.2em] border-l-4 border-sakura-pink">
+                            Enter the UZU
+                        </a>
+                    </div>
+                    <div class="mt-4 text-center opacity-20 text-[7px] tracking-[1em] uppercase italic">
+                        Powering Humanity
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- 【Footer】 -->
-    <footer class="bg-gray-100 py-20 border-t border-gray-200">
+    <footer class="bg-gray-100 py-16 border-t border-gray-200">
         <div class="container mx-auto px-4 text-center">
             <!-- ロゴセクション -->
-            <div class="flex justify-center items-center gap-4 mb-10">
-                <div class="text-uzu-blue font-bold text-lg tracking-tighter border-2 border-uzu-blue px-3 py-1 bg-white leading-tight uppercase relative">
-                    UZUSHIO<span class="text-[10px] block font-normal leading-none mt-0.5">Holdings</span>
+            <div class="flex justify-center items-center gap-3 mb-8">
+                <div class="text-uzu-blue font-bold text-sm tracking-tighter border border-uzu-blue px-2 py-0.5 bg-white leading-tight uppercase relative">
+                    UZUSHIO<span class="text-[8px] block font-normal leading-none">Holdings</span>
                 </div>
-                <span class="text-gray-300 font-light text-xl">×</span>
-                <div class="text-uzu-blue font-bold text-lg tracking-tighter border-2 border-uzu-blue px-3 py-1 bg-white leading-tight uppercase relative">
-                    UZU PH<span class="text-[10px] block font-normal leading-none mt-0.5 text-center">Enterprises Inc.</span>
+                <span class="text-gray-300 font-light text-lg">×</span>
+                <div class="text-uzu-blue font-bold text-sm tracking-tighter border border-uzu-blue px-2 py-0.5 bg-white leading-tight uppercase relative">
+                    UZU PH<span class="text-[8px] block font-normal leading-none text-center">Enterprises Inc.</span>
                 </div>
             </div>
             
-            <nav class="flex flex-wrap justify-center gap-x-8 md:gap-x-12 gap-y-6 mb-16 text-[10px] md:text-[11px] text-gray-500 font-black uppercase tracking-[0.3em]">
-                <a href="https://uzuworld.com/sutadon_christmas2025" class="hover:text-uzu-blue transition-colors">Christmas Project</a>
-                <a href="https://uzuworld.com/thankyouletter_sutadon_christmas2025" class="hover:text-uzu-blue transition-colors">Thank you Report</a>
-                <a href="https://uzuworld.com/sakurabloom2026" class="hover:text-uzu-blue transition-colors text-sakura-dark underline underline-offset-8 decoration-2">Sakura Bloom 2026</a>
-                <a href="https://uzushio-holdings.com/" target="_blank" class="hover:text-uzu-blue transition-colors uppercase">Corporate Site</a>
+            <nav class="flex flex-wrap justify-center gap-x-6 gap-y-4 mb-12 text-[9px] text-gray-500 font-black uppercase tracking-[0.2em]">
+                <a href="https://uzuworld.com/sutadon_christmas2025" class="hover:text-uzu-blue">Christmas Project</a>
+                <a href="https://uzuworld.com/thankyouletter_sutadon_christmas2025" class="hover:text-uzu-blue">Thank you Report</a>
+                <a href="https://uzuworld.com/sakurabloom2026" class="hover:text-uzu-blue text-sakura-dark underline underline-offset-4 decoration-2">Sakura Bloom 2026</a>
+                <a href="https://uzushio-holdings.com/" target="_blank" class="hover:text-uzu-blue">Corporate Site</a>
             </nav>
 
             <!-- UZUWORLD SNS Section -->
-            <div class="mb-12">
-                <!-- SUTADONYA CEBUと同じフォントサイズ・太さ・色に調整 -->
-                <div class="text-gray-400 font-black text-[9px] tracking-[0.3em] uppercase mb-6">UZUWORLD</div>
-                <div class="flex justify-center gap-10 md:gap-12 text-2xl text-gray-300 items-center">
-                    <a href="https://www.youtube.com/channel/UC4jLmOuuTPaAqWDZa5R9kMg" target="_blank" class="hover:text-uzu-blue transition-all duration-300 hover:scale-125" title="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=61585342990076" target="_blank" class="hover:text-uzu-blue transition-all duration-300 hover:scale-125" title="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/uzu_world/" target="_blank" class="hover:text-uzu-blue transition-all duration-300 hover:scale-125" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@uzu_world" target="_blank" class="hover:text-uzu-blue transition-all duration-300 hover:scale-125" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            <div class="mb-10">
+                <div class="text-gray-400 font-black text-[9px] tracking-[0.3em] uppercase mb-4">UZUWORLD</div>
+                <div class="flex justify-center gap-8 text-xl text-gray-300 items-center">
+                    <a href="https://www.youtube.com/channel/UC4jLmOuuTPaAqWDZa5R9kMg" target="_blank" class="hover:text-uzu-blue transition-all"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61585342990076" target="_blank" class="hover:text-uzu-blue transition-all"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/uzu_world/" target="_blank" class="hover:text-uzu-blue transition-all"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@uzu_world" target="_blank" class="hover:text-uzu-blue transition-all"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
 
-            <!-- SUTADONYA CEBU SNS Section (Independent Line) -->
-            <div class="mb-12 pt-4 border-t border-gray-200/50 max-w-xs mx-auto">
-                <a href="https://www.facebook.com/sutadonyacebuph" target="_blank" class="hover:text-red-700 transition-all duration-300 flex flex-col items-center gap-2 group">
-                    <i class="fab fa-facebook text-2xl text-gray-300 group-hover:text-red-700 transition-colors"></i>
-                    <span class="text-[9px] font-black tracking-[0.3em] text-gray-400 group-hover:text-red-700 transition-colors uppercase">SUTADONYA CEBU</span>
+            <!-- SUTADONYA CEBU SNS Section -->
+            <div class="mb-10 pt-4 border-t border-gray-200/50 max-w-[150px] mx-auto">
+                <a href="https://www.facebook.com/sutadonyacebuph" target="_blank" class="hover:text-red-700 transition-all flex flex-col items-center gap-1 group">
+                    <i class="fab fa-facebook text-xl text-gray-300 group-hover:text-red-700 transition-colors"></i>
+                    <span class="text-[8px] font-black tracking-[0.2em] text-gray-400 group-hover:text-red-700 transition-colors uppercase">SUTADONYA CEBU</span>
                 </a>
             </div>
 
-            <p class="text-[10px] text-gray-400 tracking-[0.3em] uppercase mb-4 font-bold">Building the Humanitarian Economy</p>
-            <p class="text-[10px] text-gray-300 tracking-[0.1em] font-light italic">&copy; 2026 UZUSHIO Holdings / UZU PH Enterprises Inc. All Rights Reserved.</p>
+            <p class="text-[9px] text-gray-400 tracking-[0.2em] uppercase mb-3 font-bold">Building the Humanitarian Economy</p>
+            <p class="text-[9px] text-gray-300 tracking-[0.1em] font-light italic">&copy; 2026 UZUSHIO Holdings / UZU PH Enterprises Inc.</p>
         </div>
     </footer>
 
     <script>
-        // スムーススクロール
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const targetId = this.getAttribute('href');
