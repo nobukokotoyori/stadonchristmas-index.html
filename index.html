@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【クリスマス緊急企画】セブ島へ日本の元気を贈ろう！すた丼Pay It Forwardクリスマスイベント2025</title>
-    <meta name="description" content="UZUSHIO HoldingsとUZU PHによる日本・フィリピン共同プロジェクト。地震・洪水被害に苦しむセブ島へ、伝説のすた丼で日本の元気を届けるPay It Forward企画です。あなたの500円が未来の希望になります。">
+    <title>UZU WORLD - HUMANITARIAN ECONOMY / SAKURA BLOOM 2026</title>
+    <meta name="description" content="UZU WORLDは、日本の価値と共に衣食住を支援する「人道経済（Humanitarian Economy）」を推進しています。セブ島での支援実績から、2026年3月の集大成「SAKURA BLOOM」へ。">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@600;900&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@600;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -19,848 +19,306 @@
             theme: {
                 extend: {
                     colors: {
-                        'uzu-blue': '#0a1f4d', /* UZUSHIO Holdingsイメージの濃紺 */
-                        'uzu-light': '#eef2ff',
-                        'xmas-red': '#c41e3a', /* クリスマスレッド */
-                        'xmas-gold': '#d4af37', /* ゴールド */
-                        'suta-bg': '#fff8f0',
-                        'doc-blue': '#0056b3',
-                        'doc-cyan': '#00a0e9',
+                        'uzu-blue': '#0a1f4d',
+                        'uzu-gold': '#d4af37',
+                        'sakura-pink': '#ffb7c5',
+                        'sakura-dark': '#e590a0',
                     },
                     fontFamily: {
                         sans: ['"Noto Sans JP"', 'sans-serif'],
                         serif: ['"Noto Serif JP"', 'serif'],
                         oswald: ['"Oswald"', 'sans-serif'],
                     },
-                    animation: {
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    }
                 }
             }
         }
     </script>
     <style>
-        .bg-pattern {
-            background-image: radial-gradient(#d4af37 1px, transparent 1px);
-            background-size: 20px 20px;
-            opacity: 0.1;
+        html { scroll-behavior: smooth; }
+        
+        /* 幾何学的な結晶パターン背景 */
+        .crystal-grid {
+            background-image: linear-gradient(30deg, rgba(255, 183, 197, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(255, 183, 197, 0.05) 87.5%, rgba(255, 183, 197, 0.05)),
+                              linear-gradient(150deg, rgba(255, 183, 197, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(255, 183, 197, 0.05) 87.5%, rgba(255, 183, 197, 0.05)),
+                              linear-gradient(60deg, rgba(255, 183, 197, 0.05) 25%, transparent 25.5%, transparent 75%, rgba(255, 183, 197, 0.05) 75%, rgba(255, 183, 197, 0.05));
+            background-size: 80px 140px;
         }
-        html {
-            scroll-behavior: smooth;
+
+        .text-glow {
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
         }
-        @keyframes shine {
-            100% { transform: skewX(-12deg) translateX(200%); }
+        
+        /* シャープなカード・コーナー装飾 */
+        .sharp-edge-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .animate-shine {
-            animation: shine 1.5s infinite;
+        .corner-accent {
+            position: absolute; width: 15px; height: 15px;
         }
-        @keyframes fade-in-up {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .corner-tl { top: -2px; left: -2px; border-top: 3px solid #ffb7c5; border-left: 3px solid #ffb7c5; }
+        .corner-br { bottom: -2px; right: -2px; border-bottom: 3px solid #ffb7c5; border-right: 3px solid #ffb7c5; }
+
+        /* 背景の光の筋（ライトビーム） */
+        .light-beam {
+            position: absolute;
+            width: 150%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255, 183, 197, 0.3), transparent);
+            transform-origin: center;
         }
-        .animate-fade-in-up {
-            animation: fade-in-up 0.8s ease-out forwards;
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        }
+
+        .lang-en { font-size: 0.85em; opacity: 0.7; letter-spacing: 0.05em; font-weight: 400; text-transform: uppercase; }
+        
+        /* ホバーアニメーション */
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
     </style>
 </head>
-<body class="font-sans text-gray-800 bg-white antialiased">
+<body class="font-sans text-gray-800 antialiased bg-white overflow-x-hidden">
 
-    <!-- 【Header】 ヘッダー -->
-    <header class="fixed top-0 left-0 w-full shadow-md z-50 transition-all duration-300 overflow-hidden bg-uzu-blue">
+    <!-- ヘッダーなし（没入型） -->
+
+    <!-- 【Hero Section】 希望の渦 (UZU) -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-uzu-blue text-white">
         <div class="absolute inset-0 z-0">
-            <img src="mactannight.jpg" 
-                 alt="Header Background" 
-                 class="w-full h-full object-cover opacity-30"
-                 onerror="this.style.display='none'; this.parentElement.classList.add('bg-gradient-to-b', 'from-blue-900', 'to-black');">
-            <div class="absolute inset-0 bg-uzu-blue/80"></div>
+            <img src="https://images.unsplash.com/photo-1518544801976-3e159e50e5bb?auto=format&fit=crop&q=80&w=2000" alt="Ocean Night" class="w-full h-full object-cover opacity-20" onerror="this.parentElement.style.background='linear-gradient(45deg, #0a1f4d, #000)'">
+            <div class="absolute inset-0 crystal-grid opacity-20"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-uzu-blue/40 via-uzu-blue/80 to-uzu-blue text-glow"></div>
+            <div class="light-beam top-1/4 left-[-25%] rotate-12"></div>
+            <div class="light-beam top-3/4 left-[-25%] -rotate-6"></div>
         </div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
-            <!-- ロゴ -->
-            <div class="flex items-center gap-2 md:gap-4">
-                <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
-                    <div class="text-white font-bold text-xs md:text-lg tracking-tighter border-2 border-white px-1.5 py-0.5 md:px-2 md:py-0.5 leading-tight">
-                        UZUSHIO<span class="text-[10px] block font-normal md:inline md:ml-1">Holdings</span>
-                    </div>
-                    <span class="text-gray-400 hidden md:block text-base">×</span>
-                    <div class="text-white font-bold text-xs md:text-lg tracking-tighter border-2 border-white px-1.5 py-0.5 md:px-2 md:py-0.5 leading-tight">
-                        UZU PH<span class="text-[10px] block font-normal md:inline md:ml-1">Enterprises Inc.</span>
-                    </div>
-                </div>
+        <div class="relative z-10 container mx-auto px-4 text-center">
+            <div class="inline-block border border-uzu-gold bg-uzu-gold/5 px-8 py-2 mb-10 text-uzu-gold font-bold tracking-[0.6em] uppercase text-xs">
+                Humanitarian Economy
             </div>
-            
-            <!-- 右側エリア：言語切り替え & CTA -->
-            <div class="flex items-center gap-3 md:gap-4">
-                <!-- 言語切り替えボタン -->
-                <button type="button" onclick="window.toggleLanguage()" class="flex items-center gap-1 text-white hover:text-xmas-gold transition text-sm md:text-base border border-white/30 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm cursor-pointer z-50">
-                    <i class="fas fa-globe"></i>
-                    <span id="lang-label">English</span>
-                </button>
-
-                <!-- Header CTA -->
-                <a href="payment.html" class="hidden md:block bg-xmas-red hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full shadow-lg transition transform hover:scale-105 text-sm border border-red-800">
-                    <i class="fas fa-gift mr-2"></i><span data-i18n="header_cta">今すぐ元気を贈る</span>
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <!-- 【Section 1】 ファーストビュー (FV) -->
-    <section class="relative min-h-screen pt-16 flex items-center justify-center overflow-hidden bg-uzu-blue">
-        <div class="absolute inset-0 z-0 bg-uzu-blue">
-            <img src="mactannight.jpg" 
-                 alt="Container Restaurant Perspective" 
-                 class="w-full h-full object-cover object-center opacity-50"
-                 onerror="this.style.display='none'; this.parentElement.classList.add('bg-gradient-to-b', 'from-blue-900', 'to-black');">
-            <div class="absolute inset-0 bg-gradient-to-b from-uzu-blue/60 via-uzu-blue/40 to-uzu-blue/90"></div>
-        </div>
-
-        <!-- Section 1 Logo: Marine Foundation (Dark Blue ver) -->
-        <div class="absolute top-20 right-4 md:top-24 md:right-10 z-20 animate-fade-in-up" style="animation-delay: 0.5s;">
-            <img src="marinedarkblue.jpg" 
-                 alt="Marine Foundation Logo" 
-                 class="w-24 md:w-40 shadow-lg rounded bg-white p-1 opacity-90"
-                 onerror="this.style.display='none'">
-        </div>
-
-        <div class="relative z-10 container mx-auto px-4 py-12 text-center flex flex-col items-center">
-            <div class="inline-block bg-xmas-red text-white px-4 py-1 rounded-full font-bold text-xs md:text-sm mb-6 shadow-lg animate-fade-in-up" data-i18n="fv_badge">
-                日本・フィリピン共同プロジェクト第一弾｜クリスマス特別企画
-            </div>
-
-            <h1 class="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 drop-shadow-xl">
-                <span data-i18n="fv_title_1">このクリスマス、</span><br>
-                <span data-i18n="fv_title_2">セブ島へ</span><span class="text-xmas-gold" data-i18n="fv_title_3">温かい贈り物</span><span data-i18n="fv_title_4">を。</span><br>
-                <span class="text-lg md:text-3xl mt-4 block font-bold text-white/90" data-i18n="fv_subtitle">
-                    あなたの500円が、未来を照らす「日本の元気」になる。
-                </span>
+            <h1 class="text-5xl md:text-8xl lg:text-9xl font-black mb-8 leading-tight font-serif tracking-tighter uppercase text-glow">
+                和を以て、世界を癒やす。
             </h1>
-
-            <p class="text-white/80 text-sm md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed" data-i18n="fv_desc">
-                困難な状況にあるフィリピン・セブ島の人々へ。<br>
-                UZUSHIO HoldingsとUZU PHが手を組み、<br class="hidden md:block">
-                伝説のすた丼で笑顔を届けるPay It Forwardプロジェクト。
+            <p class="text-xl md:text-4xl font-oswald mb-12 text-sakura-pink tracking-[0.4em] font-bold uppercase italic opacity-80">
+                Whirlpool of Hope & Economy
             </p>
-
-            <a href="payment.html" class="group relative inline-flex flex-col items-center justify-center bg-gradient-to-r from-xmas-gold to-yellow-500 text-white font-bold text-xl md:text-2xl py-4 px-10 rounded-full shadow-[0_0_20px_rgba(212,175,55,0.6)] hover:shadow-[0_0_30px_rgba(212,175,55,0.8)] transition-all transform hover:-translate-y-1 border-b-4 border-yellow-700 overflow-hidden">
-                <span class="relative z-10 flex items-center">
-                    <i class="fas fa-hand-holding-heart mr-3"></i>
-                    <span data-i18n="fv_cta">今すぐ、セブ島へ日本の活力を贈る</span>
+            <div class="max-w-4xl mx-auto opacity-95 leading-relaxed mb-16 font-sans">
+                <p class="text-xl md:text-3xl font-light tracking-[0.1em] mb-4 text-glow">
+                    目に見える・目に見えない「日本の価値」と共に。<br>
+                    衣食住を支え、<span class="text-uzu-gold font-bold uppercase tracking-widest">希望の渦（UZU）</span>を作る UZU WORLD。
+                </p>
+                <p class="lang-en text-sm md:text-lg italic opacity-40 max-w-2xl mx-auto">
+                    Transforming Japanese values into global economic healing.<br>
+                    Supporting life's foundations to create a Whirlpool of Hope and economy.
+                </p>
+            </div>
+            
+            <a href="#future" class="group relative inline-block border border-sakura-pink/50 text-sakura-pink font-black py-6 px-16 md:py-8 md:px-24 transition-all duration-300 backdrop-blur-sm w-full md:w-auto text-xl md:text-3xl uppercase tracking-[0.2em] border-l-[12px] active:scale-95 hover:bg-sakura-pink/10">
+                <span class="relative z-10 flex flex-col items-center leading-none">
+                    <span>3月の未来へ <i class="fas fa-chevron-right ml-4 text-xl group-hover:translate-x-4 transition-transform"></i></span>
+                    <span class="text-[10px] md:text-[12px] mt-3 font-bold opacity-60 tracking-[0.4em]">Sakura Bloom 2026</span>
                 </span>
-                <span class="relative z-10 text-sm font-normal mt-1" data-i18n="fv_cta_sub">（1枚 500円〜 クレジットカード対応）</span>
-                <div class="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:animate-shine"></div>
             </a>
-
-            <div class="mt-10 md:mt-16 relative w-full max-w-4xl mx-auto h-40 md:h-64 pointer-events-none">
-                <div class="absolute left-0 bottom-0 w-32 md:w-56 h-32 md:h-56 rounded-full border-4 border-white shadow-lg overflow-hidden transform -translate-x-4 translate-y-4 md:translate-y-8 z-10 bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1000&auto=format&fit=crop" 
-                         alt="Smiling Kids" 
-                         class="w-full h-full object-cover"
-                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=600&q=80';">
-                </div>
-                <div class="absolute right-0 bottom-0 w-40 md:w-64 h-40 md:h-64 rounded-full border-4 border-xmas-gold shadow-lg overflow-hidden transform translate-x-4 translate-y-4 md:translate-y-8 z-20 bg-black">
-                    <img src="classroom.jpg" 
-                         alt="教室の様子" 
-                         class="w-full h-full object-cover"
-                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541599006519-c1822b088e7a?auto=format&fit=crop&w=600&q=80';">
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- 【Section 2】 セブ島からのメッセージ -->
-    <section class="bg-white py-16 md:py-24 px-4">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10">
-            <div class="md:w-1/2">
-                <div class="rounded-2xl overflow-hidden shadow-xl rotate-2 hover:rotate-0 transition duration-500 bg-gray-100 aspect-video">
-                    <img src="school.jpg" 
-                         alt="Families in Cebu" 
-                         class="w-full h-full object-cover"
-                         onerror="this.onerror=null; this.src='https://placehold.co/600x400?text=Family+Image';">
-                </div>
-            </div>
-            <div class="md:w-1/2">
-                <h2 class="text-2xl md:text-3xl font-bold text-uzu-blue mb-6 leading-tight">
-                    <span data-i18n="msg_title_1">セブ島からのメッセージ：</span><br>
-                    <span class="text-xmas-red border-b-4 border-xmas-gold inline-block pb-1 mt-2" data-i18n="msg_title_2">今、スタミナ満点の食事が、未来への活力になります。</span>
-                </h2>
-                <p class="text-gray-600 leading-loose mb-6" data-i18n="msg_p1">
-                    日本がクリスマスムードに包まれる中、海を越えたフィリピン・セブ島では、今年発生した地震や洪水の影響で、今も多くの人々が困難な生活を送っています。
-                </p>
-                <p class="text-gray-600 leading-loose mb-6" data-i18n="msg_p2">
-                    しかし、彼らは決して希望を失ってはいません。そんな彼らにとって、栄養満点で元気が出る食事は、単にお腹を満たすだけでなく、明日を生きるための大きな活力となります。
-                </p>
-                <p class="text-gray-800 font-bold text-lg" data-i18n="msg_p3">
-                    今年のクリスマス、日本の私たちから、エールとともにスタミナ満点の食事を届けませんか？
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 【Section 3】 プロジェクト発足のストーリー -->
-    <section class="bg-suta-bg py-16 md:py-24 px-4 relative overflow-hidden">
-        <div class="absolute inset-0 bg-pattern pointer-events-none"></div>
-        
-        <!-- Section 3 Logo: Marine Foundation (Gold) -->
-        <div class="absolute top-4 right-4 md:top-10 md:right-10 z-20">
-            <img src="marinefgold.jpg" 
-                 alt="Marine Foundation Gold Logo" 
-                 class="w-10 md:w-[60px] opacity-90 mix-blend-multiply" 
-                 style="mix-blend-mode: multiply;"
-                 onerror="this.style.display='none'">
-        </div>
-
-        <div class="max-w-4xl mx-auto relative z-10">
-            <div class="text-center mb-12">
-                <span class="text-xmas-gold font-serif italic text-lg">Our Story</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-uzu-blue mt-2">
-                    <span data-i18n="story_title_1">「未来の希望」を届けるために。</span><br>
-                    <span class="text-2xl md:text-3xl" data-i18n="story_title_2">志を共にする日本・フィリピンの仲間が、今、動き出す。</span>
-                </h2>
-            </div>
-
-            <div class="mb-12 relative">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <div class="bg-white p-3 rounded-xl shadow-xl transform rotate-1 hover:rotate-0 transition duration-300">
-                        <img src="sub.jpg" 
-                             alt="SUTADONYA Container" 
-                             class="w-full h-auto rounded-lg"
-                             onerror="this.style.display='none';">
-                        <p class="text-center text-xs md:text-sm text-gray-500 mt-2 font-bold tracking-widest" data-i18n="story_img_cap">SUTADONYAコンテナレストラン周辺写真</p>
-                    </div>
-                    <div class="bg-white p-3 rounded-xl shadow-xl transform -rotate-1 hover:rotate-0 transition duration-300">
-                        <img src="main.jpg" 
-                             alt="SUTADONYA Container Front" 
-                             class="w-full h-64 object-cover rounded-lg"
-                             onerror="this.style.display='none';">
-                        <p class="text-center text-xs md:text-sm text-gray-500 mt-2 font-bold tracking-widest" data-i18n="story_img_cap_2">イメージデザイン</p>
-                    </div>
-                </div>
-                <div class="absolute -bottom-10 -right-4 md:-right-10 w-32 md:w-40 h-32 md:h-40 rounded-full border-4 border-white shadow-xl overflow-hidden bg-gray-200 z-20 transform hover:scale-105 transition">
-                    <img src="sunrise.jpg" 
-                         alt="Sunrise" 
-                         class="w-full h-full object-cover"
-                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=400&q=80';">
-                </div>
-            </div>
-
-            <div class="prose prose-lg text-gray-700 max-w-none bg-white/90 p-8 md:p-10 rounded-xl shadow-lg backdrop-blur-sm border-t-4 border-xmas-gold">
-                <p data-i18n="story_p1">
-                    私たちUZUSHIO Holdingsは世界に日本の価値を広げて人道支援を促進するため、まずフィリピンの仲間による現地法人「UZU PH Enterprises Inc.」の設立を進めてまいりました。
-                </p>
-                <p data-i18n="story_p2">
-                    その日本の食文化の代表として「伝説のすた丼屋」をフィリピンのどこへでも届けられるよう、セブ島のThe Mactan Newtownに「SUTADONYAコンテナレストラン」の準備を進めてきました。
-                </p>
-                <p data-i18n="story_p3">
-                    2026年1月の本格稼働を目指し、このSUTADONYAコンテナレストランはセブ島の新たな希望の拠点となるはずでした。しかし、その準備の最中、現地の人々が困難な状況にあり、ささやかながら支援にも出向いていきながらなにができるか考えさせられるきっかけになっていったのです。
-                </p>
-                <blockquote class="border-l-4 border-xmas-red pl-4 italic font-bold text-gray-900 my-8 bg-red-50 py-6 pr-4 rounded-r shadow-sm" data-i18n="story_quote">
-                    「自然災害で不安な思いをした子、被害にあった子供達にすた丼のクリスマスプレゼントを渡したい。」
-                </blockquote>
-                <p data-i18n="story_p4">
-                    私たちは、2026年の本格始動に先駆け、クリスマスに特別プロジェクトを実施することを決意しました。これは、日本とフィリピンが手を取り合い、未来の笑顔を作るための第一歩です。
-                </p>
-
-                <div class="mt-8 flex flex-col gap-6">
-                    <div class="rounded-lg overflow-hidden shadow-md bg-gray-100 relative group">
-                        <img src="liloan.jpg" alt="Liloan Relief Efforts" class="w-full h-auto object-contain transition duration-500 group-hover:scale-105" onerror="this.style.display='none'">
-                    </div>
-                    <div class="rounded-lg overflow-hidden shadow-md bg-gray-100 relative group">
-                        <img src="support2.jpg" 
-                             alt="Support Activity 2" 
-                             class="w-full h-auto object-contain transition duration-500 group-hover:scale-105"
-                             onerror="this.src='https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1000&q=80';">
-                    </div>
-                </div>
-                <p class="text-xs text-gray-500 mt-3 text-center" data-i18n="story_photo_caption">現地での支援活動の様子</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 【Section 4】 UZUSHIO Holdingsの決意 -->
-    <section class="relative bg-uzu-blue text-white py-20 px-4 overflow-hidden">
-        <div class="absolute inset-0 z-0 pointer-events-none">
-            <img src="cosmicwhirlpool.jpg" 
-                 alt="Uzushio Whirlpool Background" 
-                 class="w-full h-full object-cover opacity-40"
-                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516216628859-9bcce593dd4a?auto=format&fit=crop&w=2000&q=80';">
-            <div class="absolute inset-0 bg-uzu-blue/70 mix-blend-multiply"></div>
-            <div class="absolute inset-0 bg-gradient-to-b from-uzu-blue via-transparent to-uzu-blue"></div>
-        </div>
-
-        <div class="max-w-3xl mx-auto text-center relative z-10">
-            
-            <!-- Section 4 Logo: Marine Foundation (New Blue) -->
-            <img src="marinenewblue.jpg" 
-                 alt="Marine Foundation Logo" 
-                 class="absolute -top-6 right-0 md:-top-8 md:-right-10 w-10 md:w-[60px] object-contain border-none bg-transparent z-20"
-                 onerror="this.style.display='none'">
-
-            <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight font-serif drop-shadow-lg">
-                <span data-i18n="vision_title_1">目に見える・目に見えない</span><br>
-                <span data-i18n="vision_title_2">日本の価値と共に衣食住を支援したい。</span><br>
-                <span class="text-xl md:text-2xl font-normal block mt-6 text-xmas-gold" data-i18n="vision_subtitle">〜私たちが目指す Humanitarian Economy〜</span>
+    <!-- 【Philosophy】 経済と真髄 -->
+    <section id="philosophy" class="py-32 bg-white relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-4xl font-black text-uzu-blue mb-20 flex flex-col items-center uppercase">
+                <span class="text-uzu-gold text-sm tracking-[1em] mb-4 font-oswald uppercase font-bold">Economic Paradigm Shift</span>
+                人道経済（HUMANITARIAN ECONOMY）の真髄
             </h2>
-            
-            <div class="h-1 w-20 bg-white/30 mx-auto mb-10"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch bg-gray-50 border border-gray-100 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-uzu-gold"></div>
+                <div class="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-uzu-gold"></div>
 
-            <div class="text-left md:text-center space-y-6 leading-loose font-light tracking-wide text-gray-200">
-                <p data-i18n="vision_p1">
-                    私たちUZUSHIO Holdingsは、真剣に「日本の価値」が世界平和に貢献すると考えています。
-                </p>
-                <p data-i18n="vision_p2">
-                    現代の資本主義をただ継続するだけでは、世界中の何十億人もの人間の衣食住と幸福感を確保することは難しい。私たちはそう危惧しています。
-                </p>
-                <p data-i18n="vision_p3">
-                    だらかこそ、これまで出来上がった資本が、資本を産むためだけでなく、<br class="hidden md:inline"><strong class="text-white font-bold border-b border-white/50">「人間の衣食住のためにしっかり使われる」</strong>ように、私たちができることを。<br>私たちは日本の価値を使って、それを世界に表現していきたいのです。<br>そうすれば世界の経済も変わっていく。
-                </p>
-                <p data-i18n="vision_p4">
-                    たとえ小さくても、この凄まじいスピードで変わる世界で、多くの希望を求める方々のためのヒントとなる存在となりたい。
-                </p>
-                <p class="text-lg md:text-xl font-serif text-white py-4" data-i18n="vision_p5">
-                    経済活動を通じて、持続可能な希望のサイクルを作り出す。<br>
-                    それが、私たちが推進する「Humanitarian Economy（人道経済）」です。
-                </p>
-                <p data-i18n="vision_p6">
-                    今回のプロジェクトは、その壮大なビジョンへの重要な第一歩です。
-                </p>
-            </div>
-
-            <div class="mt-12 flex flex-col items-center gap-8">
-                <!-- 公式サイトボタン -->
-                <a href="https://uzushio-holdings.com/" target="_blank" rel="noopener noreferrer" class="inline-block border border-white text-white hover:bg-white hover:text-uzu-blue px-8 py-3 transition duration-300 text-sm tracking-widest backdrop-blur-sm bg-white/10 mb-4">
-                    <span data-i18n="vision_btn">UZUSHIO Holdings 株式会社 公式サイトへ</span> <i class="fas fa-external-link-alt ml-2"></i>
-                </a>
-
-                <!-- 資料PDFダウンロードボタン -->
-                <div class="relative group w-full max-w-md mx-auto">
-                    <div class="absolute -inset-0.5 bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 rounded-lg blur opacity-20 group-hover:opacity-70 transition duration-1000 group-hover:duration-200"></div>
-                    <a href="newglobal.pdf" target="_blank" class="relative block bg-gradient-to-br from-[#003366] to-[#001a33] border border-white/10 p-8 rounded-lg hover:scale-[1.02] transition duration-300 shadow-2xl overflow-hidden group-hover:border-cyan-400/50">
-                        <div class="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
-                        <div class="flex flex-col items-center relative z-10">
-                            <i class="fas fa-book-open text-3xl text-cyan-300 mb-4 opacity-90 group-hover:scale-110 transition duration-300"></i>
-                            <h3 class="font-oswald text-2xl md:text-3xl text-white tracking-[0.1em] leading-tight text-center">
-                                THE START OF<br>
-                                <span class="text-cyan-300 font-bold">A NEW GLOBAL</span><br>
-                                HUMANITARIAN<br>
-                                ECONOMY
-                            </h3>
-                            <p class="mt-3 text-xs md:text-sm text-gray-300 font-bold tracking-widest uppercase border-t border-white/20 pt-3">
-                                - SEVEN OCEAN CURRENTS, ONE EARTH -
-                            </p>
-                            <div class="mt-6 text-xs text-white/80 font-serif tracking-widest group-hover:text-white transition-colors">
-                                <span class="bg-white/10 px-6 py-2 rounded-full border border-white/20 group-hover:bg-cyan-600 group-hover:border-cyan-400 transition duration-300">
-                                    <i class="fas fa-file-pdf mr-2"></i><span data-i18n="pdf_download">資料を見る</span> <i class="fas fa-arrow-right text-[10px] ml-1"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </a>
+                <div class="text-left font-serif text-gray-800 p-12 md:p-24 md:border-r border-gray-200 flex flex-col justify-center bg-white">
+                    <p class="text-xl md:text-3xl leading-loose italic relative mb-10">
+                        <i class="fas fa-quote-left text-uzu-gold/20 text-7xl absolute -top-16 -left-8"></i>
+                        「現代の資本主義をただ継続するだけでは、人間の衣食住と幸福感を確保することは難しい。だからこそ、資本が人間のためにしっかり使われるように。私たちは日本の価値を使って、それを世界に表現していきたいのです。」
+                    </p>
+                    <div class="h-1 w-32 bg-uzu-gold"></div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 【Section 5】 なぜ「伝説のすた丼」なのか？ -->
-    <section class="py-16 md:py-24 px-4 bg-white relative overflow-hidden">
-        
-        <!-- Global Samurai Logo (セクションの右上に絶対配置) -->
-        <div class="absolute top-4 right-4 md:top-10 md:right-10 z-20 pointer-events-none">
-            <img src="globalsamurai.jpg" 
-                 alt="Global Samurai Logo" 
-                 class="w-10 md:w-[60px] object-contain border-none bg-transparent"
-                 onerror="this.style.display='none'">
-        </div>
-
-        <div class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12 relative z-10">
-            <!-- Left Column: Text -->
-            <div class="md:w-1/2 text-center md:text-left">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 leading-tight">
-                    <span data-i18n="history_title">伝説のすた丼屋：創業からの魂と、世界への挑戦</span>
-                </h2>
-                
-                <div class="mb-6 space-y-4 text-gray-600 leading-relaxed">
-                    <p class="font-bold text-gray-800" data-i18n="history_sub">1971年創業。「旨いものを腹いっぱい食べて頑張ってほしい」という親父の想い。</p>
-                    <p data-i18n="history_p1">
-                        東京都国立市。あるラーメン店の店主が「若いやつらに安くて旨いものを腹いっぱい食わせてやりたい」という熱い想いで生み出したのが「すた丼」の始まりです。秘伝のニンニク醤油ダレで炒めた豚肉は、食べた瞬間に活力がみなぎる唯一無二の味として、半世紀以上愛され続けています。
+                <div class="text-left font-sans text-gray-600 lang-en italic p-12 md:p-24 flex flex-col justify-center gap-8 bg-gray-50/50">
+                    <p class="text-lg md:text-xl leading-relaxed">
+                        "Traditional capitalism alone cannot sustain human dignity. Our mission is to integrate <span class="text-uzu-blue font-bold text-glow italic">Healing</span> and <span class="text-uzu-blue font-bold text-glow italic">Hope</span> directly into the <span class="text-uzu-blue font-bold text-glow italic">Economy</span>. We rebuild the whirlpool of life through Japanese values."
                     </p>
                 </div>
-
-                <div class="bg-gray-50 border-l-4 border-uzu-blue p-5 mb-6 rounded-r shadow-sm text-left">
-                    <h3 class="text-gray-800 font-bold mb-2 flex items-center">
-                        <i class="fas fa-globe-asia text-uzu-blue mr-2"></i><span data-i18n="vision_section_title">世界に希望を与える日本食レストランへ</span>
-                    </h3>
-                    <p class="text-gray-600 text-sm leading-relaxed" data-i18n="vision_content">
-                        運営する株式会社アントワークスの企業理念は『食を通じて、日本全国さらには世界の人々の底力となる』こと。<br>
-                        単なる飲食店ではなく、食を通じて人々にエネルギーを与え、世界に希望を与える代表的な日本食レストランになるとUZU Familyは信じています。
-                    </p>
-                </div>
-
-                <div class="bg-yellow-50 border-l-4 border-xmas-gold p-5 rounded-r shadow-sm text-left space-y-4">
-                    <div>
-                        <p class="text-gray-800 font-bold mb-1 text-sm md:text-base flex items-center">
-                            <i class="fas fa-history text-amber-600 mr-2"></i><span data-i18n="why_box_title1">セブの伝統文化「Lechon（レチョン）」</span>
-                        </p>
-                        <p class="text-gray-600 text-xs md:text-sm leading-relaxed" data-i18n="why_box_p1">
-                            セブ島には、スペイン統治時代の16世紀から続く、お祝いの席には欠かせない「豚の丸焼き（Lechon）」を囲む食文化があります。彼らにとって豚肉料理は、歴史的にも特別な「ハレの日」の象徴なのです。
-                        </p>
-                    </div>
-                    <div class="border-t border-yellow-200 pt-3">
-                        <p class="text-gray-800 font-bold mb-1 flex items-center">
-                            <i class="fas fa-utensils text-xmas-gold mr-2"></i><span data-i18n="why_box_title2">だからこそ、最高のプレゼントになる</span>
-                        </p>
-                        <p class="text-gray-600 text-sm" data-i18n="why_box_p2">
-                            お肉たっぷりの丼ぶりをお腹いっぱい食べる。<br>
-                            それは、現地の人々にとって日常ではなかなか味わえない、心踊る最高の贅沢です。あなたの支援は、彼らにとって忘れられないクリスマスの「ご馳走」となります。
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Column: Image -->
-            <div class="md:w-1/2">
-                <div class="relative group">
-                    <div class="absolute inset-0 bg-xmas-gold rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                    <img src="sutadon.jpg" 
-                         alt="Sutadon" 
-                         class="relative z-10 w-full max-w-md mx-auto drop-shadow-2xl transform group-hover:scale-105 transition duration-500"
-                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541599006519-c1822b088e7a?auto=format&fit=crop&w=800&q=80';">
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- 【Section 6】 Pay It Forwardの仕組み -->
-    <section class="bg-blue-50 py-16 md:py-24 px-4">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-2xl md:text-3xl font-bold text-uzu-blue mb-12">
-                <span data-i18n="pay_title_1">あなたの500円が、</span><br class="md:hidden">
-                <span data-i18n="pay_title_2">誰かの「最高のクリスマスプレゼント」に。</span>
-            </h2>
-
-            <!-- Flexboxレイアウト (PC:横並び, スマホ:縦並び) -->
-            <div class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 relative mb-12">
-                
-                <!-- Card 1 -->
-                <div class="w-full md:w-1/3 bg-white p-8 rounded-2xl shadow-lg relative z-10 border-t-4 border-uzu-blue flex-1 h-full">
-                    <div class="w-16 h-16 bg-uzu-blue text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2" data-i18n="pay_step1_title">【日本】</h3>
-                    <p class="font-bold text-xmas-red mb-2" data-i18n="pay_step1_sub">スマホでチケット購入</p>
-                    <p class="text-sm text-gray-500" data-i18n="pay_step1_desc">あなたの500円</p>
-                </div>
-
-                <!-- Icon 1: 飛行機 -->
-                <div class="text-4xl text-xmas-gold z-0 flex-shrink-0">
-                    <!-- PC: rotate-0 (右向き), スマホ: rotate-90 (下向き) -->
-                    <i class="fas fa-plane transform rotate-90 md:rotate-0"></i>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="w-full md:w-1/3 bg-white p-8 rounded-2xl shadow-lg relative z-10 border-t-4 border-xmas-gold flex-1 h-full">
-                    <div class="w-16 h-16 bg-xmas-gold text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                        <i class="fas fa-fire-burner"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2" data-i18n="pay_step2_title">【セブ島】</h3>
-                    <p class="font-bold text-orange-500 mb-2" data-i18n="pay_step2_sub">熱々のすた丼が作られる</p>
-                    <p class="text-sm text-gray-500" data-i18n="pay_step2_desc">イベント会場にて調理</p>
-                </div>
-
-                <!-- Icon 2: ハート -->
-                <div class="text-4xl text-xmas-gold z-0 flex-shrink-0">
-                    <i class="fas fa-heart"></i>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="w-full md:w-1/3 bg-white p-8 rounded-2xl shadow-lg relative z-10 border-t-4 border-xmas-red flex-1 h-full">
-                    <div class="w-16 h-16 bg-xmas-red text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                        <i class="fas fa-smile-beam"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2" data-i18n="pay_step3_title">【現地の方】</h3>
-                    <p class="font-bold text-pink-500 mb-2" data-i18n="pay_step3_sub">笑顔で受け取る</p>
-                    <p class="text-sm text-gray-500" data-i18n="pay_step3_desc">最高のプレゼント！</p>
-                </div>
-            </div>
-
-            <div class="bg-white p-8 rounded-xl max-w-3xl mx-auto shadow-sm text-left md:text-center">
-                <p class="text-gray-700 leading-relaxed mb-4" data-i18n="pay_p1">
-                    仕組みはシンプルです。あなたがこのサイトで「Pay It Forwardチケット（500円）」を購入すると、そのチケットがセブ島のイベント会場で温かい「すた丼」一杯に変わります。
-                </p>
-                <p class="text-gray-700 leading-relaxed mb-8" data-i18n="pay_p2">
-                    あなたが贈るのは、ただの食事券ではありません。遠く離れた日本から、彼らを想う「温かい心」そのものです。<br class="hidden md:block">今年のクリスマス、あなたもセブ島のサンタクロースになりませんか？
-                </p>
-                
-                <!-- 新規追加ボタン (セクション6内) -->
-                <div class="text-center">
-                    <a href="payment.html" class="group relative inline-flex flex-col items-center justify-center bg-gradient-to-r from-xmas-gold to-yellow-500 text-white font-bold text-xl md:text-2xl py-4 px-10 rounded-full shadow-[0_0_20px_rgba(212,175,55,0.6)] hover:shadow-[0_0_30px_rgba(212,175,55,0.8)] transition-all transform hover:-translate-y-1 border-b-4 border-yellow-700 overflow-hidden">
-                        <span class="relative z-10 flex items-center">
-                            <i class="fas fa-hand-holding-heart mr-3"></i>
-                            <span data-i18n="fv_cta">今すぐ、セブ島へ日本の活力を贈る</span>
-                        </span>
-                        <span class="relative z-10 text-sm font-normal mt-1" data-i18n="fv_cta_sub">（1枚 500円〜 クレジットカード対応）</span>
-                        <div class="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:animate-shine"></div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 【Section 7】 イベント実施概要 -->
-    <section class="py-16 md:py-24 px-4 bg-suta-bg">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-10">
-                <h2 class="text-2xl font-bold text-uzu-blue">
-                    <span data-i18n="outline_title_1">日本・フィリピン共同開催</span><br>
-                    <span data-i18n="outline_title_2">クリスマスすた丼Pay It Forwardイベント概要</span>
-                </h2>
-            </div>
-
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
-                <div class="bg-uzu-blue text-white p-8 text-center">
-                    <p class="text-xmas-gold text-xs md:text-sm tracking-[0.2em] uppercase mb-2 font-serif">Special Venue Partner</p>
-                    <h3 class="text-2xl md:text-3xl font-serif font-bold mb-4">The Mactan Newtown</h3>
-                    <div class="text-gray-200 text-sm md:text-base leading-loose max-w-3xl mx-auto font-light space-y-4">
-                        <p data-i18n="venue_desc_1">
-                            Mactan Newtown（マクタン・ニュータウン）は、フィリピン・セブ島のマクタン島（ラプラプ市）にある、1989年設立のフィリピン上場企業 Megaworld Corporation（メガワールド社）が開発する、約30ヘクタールに及ぶ「マスタープランタウンシップ（複合開発都市）」です。
-                        </p>
-                        <p data-i18n="venue_desc_2">
-                            Megaworld は、フィリピン証券取引所（PSE: MEG）に上場する国内最大級の不動産デベロッパーであり、これまでに国内外で800棟以上の住宅建物、150万㎡超のオフィススペース、50万㎡超の商業施設、5,000室以上のホテルを開発・運営してきた実績を持ちます。
-                            総資産は約4,700億フィリピンペソ（約1兆2,000億円相当）にのぼり、強固な財務基盤と透明性の高い企業統治で知られています。
-                        </p>
-                        <p class="text-white font-normal py-4 border-y border-white/10 bg-white/5 mx-auto max-w-2xl mt-6" data-i18n="venue_desc_4">
-                            その格式の高さから、<strong class="text-white border-b border-xmas-gold pb-0.5">2026年「ASEAN首脳会議」の会場</strong>にも選定された特別な場所です。
-                        </p>
-                        <p class="mt-4" data-i18n="venue_desc_5">
-                            しかし、その素顔は驚くほど開放的でフレンドリー。<br>
-                            週末には地元の家族連れや子供たちの笑い声が響き渡る、誰もが安心して過ごせる温かいコミュニティでもあります。
-                        </p>
-                        <p class="mt-4" data-i18n="venue_desc_6">
-                            世界が注目するこの地で、Humanitarian Economy促進の覚書（MOU）を締結した<br class="hidden md:inline">
-                            強力なパートナーの全面協力のもと、本イベントは開催されます。
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="relative h-72 md:h-96 w-full overflow-hidden">
-                    <img src="footer_bg.jpg" 
-                         alt="The Mactan Newtown Venue" 
-                         class="w-full h-full object-cover"
-                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80';">
-                    <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black/60 to-transparent w-full p-4">
-                        <span class="text-white font-bold text-sm md:text-base">
-                            <i class="fas fa-map-marker-alt mr-2 text-xmas-gold"></i>会場：The Mactan Newtown
-                        </span>
-                    </div>
-                </div>
-
-                <div class="p-6 md:p-10">
-                    <dl class="grid grid-cols-1 md:grid-cols-3 gap-y-6 gap-x-4 text-sm md:text-base border-b border-gray-100 pb-6">
-                        <dt class="font-bold text-gray-500" data-i18n="outline_dt_1">日時</dt>
-                        <dd class="md:col-span-2 font-bold text-gray-900 text-lg" data-i18n="outline_dd_1">2025年12月20日（土）＆ 12月21日（日）<br><span class="text-sm font-normal text-gray-600">各日 16:00〜21:00</span></dd>
-
-                        <dt class="font-bold text-gray-500" data-i18n="outline_dt_2">場所</dt>
-                        <dd class="md:col-span-2 text-gray-900">
-                            The Mactan New Town Boardwalk<br>
-                            <span class="text-gray-500 text-xs font-sans">(The Mactan Newtown, Lapu-Lapu City, Mactan Island, Cebu)</span>
-                        </dd>
-
-                        <dt class="font-bold text-gray-500" data-i18n="outline_dt_3">提供価格</dt>
-                        <dd class="md:col-span-2 text-gray-900">
-                            <span data-i18n="outline_dd_3_1">Pay It Forward 1杯 500円相当</span><br>
-                            <span class="text-xmas-red text-xs" data-i18n="outline_dd_3_2">※皆様からの支援で賄われます</span>
-                        </dd>
-                    </dl>
-                    
-                    <div class="mt-8 text-center bg-orange-50 p-6 rounded-lg border border-orange-200">
-                        <p class="text-orange-800 font-bold text-lg mb-2" data-i18n="outline_goal">目標は、一人でも多くの方に元気になれる食事を届けること。</p>
-                        <p class="text-gray-700" data-i18n="outline_help">そのためには、日本にいる皆さんの力が不可欠です。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 【Section 8】 クロージング -->
-    <section id="purchase" class="relative py-24 px-4 bg-blue-900 overflow-hidden">
-        <div class="absolute inset-0 z-0 bg-uzu-blue">
-            <img src="mactannight.jpg" 
-                 alt="Hopeful Future" 
-                 class="w-full h-full object-cover object-center opacity-40 filter brightness-125 saturate-150"
-                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80';">
-            <div class="absolute inset-0 bg-gradient-to-t from-uzu-blue via-uzu-blue/60 to-transparent"></div>
-        </div>
-
-        <div class="relative z-10 max-w-4xl mx-auto text-center text-white">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8 drop-shadow-lg">
-                <span data-i18n="close_title_1">この希望の拠点が、たくさんの笑顔で溢れるように。</span><br>
-                <span class="text-xmas-gold block mt-4" data-i18n="close_title_2">あなたの温かいご支援を、お待ちしています。</span>
-            </h2>
+    <!-- 【Report Video】 経済的支援の具現化 -->
+    <section class="py-32 bg-uzu-blue text-white overflow-hidden relative border-y border-white/10 text-glow">
+        <div class="absolute inset-0 crystal-grid opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-4xl md:text-7xl font-black font-serif mb-6 tracking-tighter uppercase">2025 Special Report</h2>
+            <p class="text-uzu-gold font-bold tracking-[0.4em] mb-16 uppercase text-[12px] italic tracking-widest">Manifestation of Economic Healing</p>
             
-            <p class="text-gray-100 leading-loose mb-12 text-lg" data-i18n="close_p">
-                来年1月、このSUTADONYAコンテナレストランが本格稼働すれば、より持続的な形で彼らの生活を支えることができます。今回のクリスマスプロジェクトは、その未来へ繋ぐ大切な架け橋です。<br><br>
-                日本からの熱いエールを、熱々のすた丼に乗せて。<br>
-                セブ島の子どもたち、家族たちに、忘れられないクリスマスの笑顔を、一緒に贈りましょう。
-            </p>
+            <div class="max-w-6xl mx-auto relative bg-black shadow-[0_0_100px_rgba(0,0,0,0.7)] border border-white/10 group overflow-hidden">
+                <div class="absolute -top-1 -left-1 w-16 h-16 border-t-2 border-l-2 border-uzu-gold z-20"></div>
+                <div class="absolute -bottom-1 -right-1 w-16 h-16 border-b-2 border-r-2 border-uzu-gold z-20"></div>
+                
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/eLyIDxTTiHM" title="2025 Report" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
 
-            <a href="payment.html" class="w-full md:w-auto bg-gradient-to-b from-xmas-red to-red-700 hover:from-red-500 hover:to-red-600 text-white font-bold text-2xl py-6 px-12 rounded-full shadow-2xl transition transform hover:scale-105 border-4 border-red-800 animate-pulse-slow inline-block">
-                <span data-i18n="close_btn_main">この想いに賛同し、クリスマスにすた丼を贈る</span>
-                <span class="block text-base font-normal mt-2 opacity-90" data-i18n="close_btn_sub">（1枚 500円から購入可能です）</span>
-            </a>
-
-            <div class="mt-8 flex justify-center gap-4">
-                <i class="fab fa-cc-visa text-4xl text-white/80"></i>
-                <i class="fab fa-cc-mastercard text-4xl text-white/80"></i>
-                <i class="fab fa-cc-amex text-4xl text-white/80"></i>
-                <i class="fab fa-cc-jcb text-4xl text-white/80"></i>
+            <div class="mt-20 max-w-4xl mx-auto">
+                <p class="text-xl md:text-4xl font-light opacity-90 leading-relaxed font-serif italic mb-6">
+                    あの日灯した光が、どのように現地の笑顔と<br class="hidden md:block">
+                    <span class="text-uzu-gold font-bold uppercase tracking-widest">「希望の渦（UZU）」</span>に変わったのか。
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- 【Footer】 フッター -->
-    <footer class="relative bg-uzu-blue text-gray-400 py-12 border-t border-gray-800 overflow-hidden">
+    <!-- 【Project Archive】 -->
+    <section id="projects" class="py-32 bg-gray-50 relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-3xl md:text-5xl font-black text-uzu-blue font-serif tracking-tight uppercase mb-24">Archive of Hope</h2>
+            <div class="max-w-4xl mx-auto font-sans text-left">
+                <div class="bg-white shadow-2xl card-hover transition-all duration-500 flex flex-col md:flex-row border border-gray-100 overflow-hidden relative">
+                    <div class="absolute top-4 right-4 w-6 h-6 border-t border-r border-uzu-gold opacity-20"></div>
+                    <div class="w-full md:w-1/2 h-64 md:h-auto overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=800" alt="Support Project" class="w-full h-full object-cover transition-transform duration-1000 hover:scale-105">
+                        <div class="absolute top-0 left-0 bg-red-700 text-white px-8 py-3 text-[10px] font-black tracking-[0.5em] uppercase shadow-lg">December 2025</div>
+                    </div>
+                    <div class="w-full md:w-1/2 p-10 md:p-16 flex flex-col border-t-[8px] md:border-t-0 md:border-l-[12px] border-red-700/10">
+                        <h3 class="text-2xl md:text-3xl font-black text-uzu-blue mb-6 leading-tight font-serif uppercase tracking-tight">クリスマス緊急企画 in Cebu</h3>
+                        <p class="text-gray-600 leading-loose mb-8 text-lg font-light">
+                            2025年、地震や洪水に苦しむ人々へ、伝説のすた丼を通じて「日本の元気」と「人道経済」の種を届けたプロジェクト。それは未来の笑顔を作るための最初の一歩となりました。
+                        </p>
+                        <a href="https://uzuworld.com/sutadon_christmas2025" class="inline-flex items-center text-uzu-blue font-black border-b-2 border-uzu-gold pb-1 hover:text-uzu-gold transition-all tracking-[0.4em] uppercase text-xs">VIEW PROJECT DETAILS <i class="fas fa-chevron-right ml-4 text-xs"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 【Future Section】 -->
+    <section id="future" class="relative py-48 md:py-72 bg-uzu-blue overflow-hidden text-glow">
         <div class="absolute inset-0 z-0">
-            <img src="mactannight.jpg" 
-                 alt="Footer Background" 
-                 class="w-full h-full object-cover opacity-30"
-                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=2000&q=80';">
-            <div class="absolute inset-0 bg-uzu-blue/90"></div>
+            <div class="absolute inset-0 bg-[#020512]"></div>
+            <div class="absolute inset-0 crystal-grid opacity-30"></div>
+            <div class="absolute inset-0 bg-gradient-to-tr from-uzu-blue via-transparent to-sakura-pink/40"></div>
+            <div class="light-beam top-1/4 left-[-20%] rotate-12 opacity-40"></div>
+            <div class="light-beam top-3/4 left-[-20%] -rotate-6 opacity-40"></div>
         </div>
 
-        <div class="relative z-10 max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-center md:text-left space-y-2">
-                <p class="text-xs uppercase tracking-widest text-gray-500">Organizer</p>
-                <p class="font-bold text-white">UZUSHIO Holdings 株式会社 / UZU PH Enterprises Inc.</p>
-                <p class="text-xs uppercase tracking-widest text-gray-500 mt-4">Cooperation</p>
-                <p class="text-sm">
-                    <a href="https://www.facebook.com/MactanNewtownMegaworld" target="_blank" rel="noopener noreferrer" class="hover:text-white transition underline decoration-gray-600 hover:decoration-white">The Mactan Newtown</a>
-                    <span class="mx-1">/</span>
-                    <a href="https://antoworks.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition underline decoration-gray-600 hover:decoration-white">株式会社アントワークス（伝説のすた丼屋）</a>
-                </p>
-
-                <p class="text-xs uppercase tracking-widest text-gray-500 mt-4">Humanitarian Economy Movement Partner</p>
-                <p class="text-sm flex flex-col md:flex-row gap-2 md:gap-4">
-                    <a href="https://www.avenge.center/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition underline decoration-gray-600 hover:decoration-white">Avenge Co., Ltd.</a>
-                    <span class="hidden md:inline text-gray-600">|</span>
-                    <a href="https://www.unkou-japan.jp" target="_blank" rel="noopener noreferrer" class="hover:text-white transition underline decoration-gray-600 hover:decoration-white">UNKOU Japan Co., Ltd.</a>
-                    <span class="hidden md:inline text-gray-600">|</span>
-                    <a href="https://bedeal.world/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition underline decoration-gray-600 hover:decoration-white">BEDEAL Ltd.</a>
-                </p>
-            </div>
-
-            <div class="text-center md:text-right">
-                <a href="tokusho.html" class="text-sm hover:text-white transition" data-i18n="footer_tokusho">特定商取引法に基づく表記</a>
-                <span class="mx-2 text-gray-700">|</span>
-                <a href="privacy.html" class="text-sm hover:text-white transition" data-i18n="footer_privacy">プライバシーポリシー</a>
-                <p class="mt-4 text-xs text-gray-600">&copy; 2025 UZUSHIO Holdings / UZU PH Enterprises Inc. All Rights Reserved.</p>
-                <div class="mt-2 flex flex-col items-center md:items-end">
-                    <p class="text-xs text-gray-600">Produced by <a href="https://flowerangelhk.com/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-400 transition underline decoration-gray-700">Flower Angel</a></p>
-                    <!-- SVGアイコンに変更 -->
-                    <a href="worldpartner.pdf" target="_blank" class="text-xs text-uzu-blue hover:text-xmas-gold transition mt-1 flex items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor" class="w-3 h-3"><path d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"/></svg>
-                        UZU World Partnership Program
+        <div class="relative z-10 container mx-auto px-4 text-center">
+            <div class="flex flex-col items-center">
+                <div class="mb-20 text-center relative">
+                    <h2 class="text-sakura-pink text-sm tracking-[2em] mb-8 font-oswald font-bold uppercase italic text-glow">Global Economic Expansion</h2>
+                    <h3 class="text-5xl md:text-[12rem] font-black text-white font-serif leading-none tracking-tighter mb-16 uppercase text-glow">
+                        2026.03<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-sakura-pink via-white to-sakura-pink font-sans italic tracking-[0.2em] md:tracking-[0.4em] text-3xl md:text-9xl block mt-10 uppercase">Sakura Bloom</span>
+                    </h3>
+                </div>
+                
+                <div class="max-w-6xl mx-auto bg-white/[0.02] backdrop-blur-3xl p-10 md:p-32 border border-white/10 shadow-[0_0_150px_rgba(0,0,0,1)] relative overflow-hidden sharp-edge-card group">
+                    <div class="corner-accent corner-tl"></div>
+                    <div class="corner-accent corner-br"></div>
+                    
+                    <div class="mb-16 md:mb-24 text-center relative z-10">
+                        <p class="text-white text-xl md:text-5xl leading-tight font-light mb-12 md:mb-16 tracking-[0.05em] font-serif text-glow">
+                            1万食の達成、そして世界経済の癒やしへ。<br>
+                            セブ島にて開催される1万人規模の歴史的コンサート。<br>
+                            <span class="text-sakura-pink font-bold border-l-[10px] md:border-l-[16px] border-sakura-pink pl-6 md:pl-12 py-4 md:py-8 inline-block my-8 md:my-14 bg-white/5 uppercase tracking-[0.2em] md:tracking-[0.3em] text-glow italic">人道経済（Humanitarian Economy）正式ローンチ</span><br>
+                            希望の渦（UZU）を、世界中へ。
+                        </p>
+                        <p class="lang-en text-white/40 text-sm md:text-3xl italic leading-relaxed max-w-4xl mx-auto font-light tracking-[0.1em] md:tracking-[0.2em]">
+                            Witness the global birth of a new economic paradigm. <br>
+                            Expanding the Whirlpool of Hope from Cebu to the World.
+                        </p>
+                    </div>
+                    
+                    <a href="https://uzuworld.com/sakurabloom2026" class="inline-flex items-center bg-white text-uzu-blue font-black text-xl md:text-4xl py-8 px-12 md:py-12 md:px-36 shadow-[0_0_80px_rgba(255,183,197,0.5)] transition-all duration-700 hover:-translate-y-5 uppercase tracking-[0.3em] md:tracking-[0.5em] border-l-[16px] md:border-l-[24px] border-sakura-pink active:scale-95 text-glow">
+                        Enter the UZU <i class="fas fa-long-arrow-alt-right ml-6 md:ml-10 opacity-50 group-hover:translate-x-8 transition-all"></i>
                     </a>
                 </div>
+                
+                <div class="mt-32 md:mt-40 flex items-center gap-8 md:gap-16 text-white/10 text-[9px] md:text-[11px] tracking-[1em] md:tracking-[1.5em] font-black uppercase italic">
+                    <span class="w-24 md:w-48 h-[1px] bg-gradient-to-r from-transparent to-white/20"></span>
+                    Powering humanity through values
+                    <span class="w-24 md:w-48 h-[1px] bg-gradient-to-l from-transparent to-white/20"></span>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- 【Footer】 -->
+    <footer class="bg-gray-100 py-20 border-t border-gray-200">
+        <div class="container mx-auto px-4 text-center">
+            <!-- ロゴセクション -->
+            <div class="flex justify-center items-center gap-4 mb-10">
+                <div class="text-uzu-blue font-bold text-lg tracking-tighter border-2 border-uzu-blue px-3 py-1 bg-white leading-tight uppercase relative">
+                    UZUSHIO<span class="text-[10px] block font-normal leading-none mt-0.5">Holdings</span>
+                </div>
+                <span class="text-gray-300 font-light text-xl">×</span>
+                <div class="text-uzu-blue font-bold text-lg tracking-tighter border-2 border-uzu-blue px-3 py-1 bg-white leading-tight uppercase relative">
+                    UZU PH<span class="text-[10px] block font-normal leading-none mt-0.5 text-center">Enterprises Inc.</span>
+                </div>
+            </div>
+            
+            <nav class="flex flex-wrap justify-center gap-x-8 md:gap-x-12 gap-y-6 mb-16 text-[10px] md:text-[11px] text-gray-500 font-black uppercase tracking-[0.3em]">
+                <a href="https://uzuworld.com/sutadon_christmas2025" class="hover:text-uzu-blue transition-colors">Christmas Project</a>
+                <a href="https://uzuworld.com/thankyouletter_sutadon_christmas2025" class="hover:text-uzu-blue transition-colors">Thank you Report</a>
+                <a href="https://uzuworld.com/sakurabloom2026" class="hover:text-uzu-blue transition-colors text-sakura-dark underline underline-offset-8 decoration-2">Sakura Bloom 2026</a>
+                <a href="https://uzushio-holdings.com/" target="_blank" class="hover:text-uzu-blue transition-colors uppercase">Corporate Site</a>
+            </nav>
+
+            <!-- UZUWORLD SNS Section -->
+            <div class="mb-12">
+                <!-- SUTADONYA CEBUと同じフォントサイズ・太さ・色に調整 -->
+                <div class="text-gray-400 font-black text-[9px] tracking-[0.3em] uppercase mb-6">UZUWORLD</div>
+                <div class="flex justify-center gap-10 md:gap-12 text-2xl text-gray-300 items-center">
+                    <a href="https://www.youtube.com/channel/UC4jLmOuuTPaAqWDZa5R9kMg" target="_blank" class="hover:text-uzu-blue transition-all duration-300 hover:scale-125" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61585342990076" target="_blank" class="hover:text-uzu-blue transition-all duration-300 hover:scale-125" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/uzu_world/" target="_blank" class="hover:text-uzu-blue transition-all duration-300 hover:scale-125" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@uzu_world" target="_blank" class="hover:text-uzu-blue transition-all duration-300 hover:scale-125" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <!-- SUTADONYA CEBU SNS Section (Independent Line) -->
+            <div class="mb-12 pt-4 border-t border-gray-200/50 max-w-xs mx-auto">
+                <a href="https://www.facebook.com/sutadonyacebuph" target="_blank" class="hover:text-red-700 transition-all duration-300 flex flex-col items-center gap-2 group">
+                    <i class="fab fa-facebook text-2xl text-gray-300 group-hover:text-red-700 transition-colors"></i>
+                    <span class="text-[9px] font-black tracking-[0.3em] text-gray-400 group-hover:text-red-700 transition-colors uppercase">SUTADONYA CEBU</span>
+                </a>
+            </div>
+
+            <p class="text-[10px] text-gray-400 tracking-[0.3em] uppercase mb-4 font-bold">Building the Humanitarian Economy</p>
+            <p class="text-[10px] text-gray-300 tracking-[0.1em] font-light italic">&copy; 2026 UZUSHIO Holdings / UZU PH Enterprises Inc. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- 言語切り替えスクリプト (Global) -->
     <script>
-        // 翻訳データベース
-        const translations = {
-            ja: {
-                header_cta: "今すぐ元気を贈る",
-                fv_badge: "日本・フィリピン共同プロジェクト第一弾｜クリスマス特別企画",
-                fv_title_1: "このクリスマス、",
-                fv_title_2: "セブ島へ",
-                fv_title_3: "温かい贈り物",
-                fv_title_4: "を。",
-                fv_subtitle: "あなたの500円が、未来を照らす「日本の元気」になる。",
-                fv_desc: "困難な状況にあるフィリピン・セブ島の人々へ。<br>UZUSHIO HoldingsとUZU PHが手を組み、<br class=\"hidden md:block\">伝説のすた丼で笑顔を届けるPay It Forwardプロジェクト。",
-                fv_cta: "今すぐ、セブ島へ日本の活力を贈る",
-                fv_cta_sub: "（1枚 500円〜 クレジットカード対応）",
-                msg_title_1: "セブ島からのメッセージ：",
-                msg_title_2: "今、スタミナ満点の食事が、未来への活力になります。",
-                msg_p1: "日本がクリスマスムードに包まれる中、海を越えたフィリピン・セブ島では、今年発生した地震や洪水の影響で、今も多くの人々が困難な生活を送っています。",
-                msg_p2: "しかし、彼らは決して希望を失ってはいません。そんな彼らにとって、栄養満点で元気が出る食事は、単にお腹を満たすだけでなく、明日を生きるための大きな活力となります。",
-                msg_p3: "今年のクリスマス、日本の私たちから、エールとともにスタミナ満点の食事を届けませんか？",
-                story_title_1: "「未来の希望」を届けるために。",
-                story_title_2: "志を共にする日本・フィリピンの仲間が、今、動き出す。",
-                story_img_cap: "SUTADONYAコンテナレストラン周辺写真",
-                story_img_cap_2: "イメージデザイン",
-                story_p1: "私たちUZUSHIO Holdingsは世界に日本の価値を広げて人道支援を促進するため、まずフィリピンの仲間による現地法人「UZU PH Enterprises Inc.」の設立を進めてまいりました。",
-                story_p2: "その日本の食文化の代表として「伝説のすた丼屋」をフィリピンのどこへでも届けられるよう、セブ島のThe Mactan Newtownに「SUTADONYAコンテナレストラン」の準備を進めてきました。",
-                story_p3: "2026年1月の本格稼働を目指し、このSUTADONYAコンテナレストランはセブ島の新たな希望の拠点となるはずでした。しかし、その準備の最中、現地の人々が困難な状況にあり、ささやかながら支援にも出向いていきながらなにができるか考えさせられるきっかけになっていったのです。",
-                story_quote: "「自然災害で不安な思いをした子、被害にあった子供達にすた丼のクリスマスプレゼントを渡したい。」",
-                story_p4: "私たちは、2026年の本格始動に先駆け、クリスマスに特別プロジェクトを実施することを決意しました。これは、日本とフィリピンが手を取り合い、未来の笑顔を作るための第一歩です。",
-                story_photo_caption: "現地での支援活動の様子",
-                vision_title_1: "目に見える・目に見えない",
-                vision_title_2: "日本の価値と共に衣食住を支援したい。",
-                vision_subtitle: "〜私たちが目指す Humanitarian Economy〜",
-                vision_p1: "私たちUZUSHIO Holdingsは、真剣に「日本の価値」が世界平和に貢献すると考えています。",
-                vision_p2: "現代の資本主義をただ継続するだけでは、世界中の何十億人もの人間の衣食住と幸福感を確保することは難しい。私たちはそう危惧しています。",
-                vision_p3: "だらかこそ、これまで出来上がった資本が、資本を産むためだけでなく、<br class=\"hidden md:inline\"><strong class=\"text-white font-bold border-b border-white/50\">「人間の衣食住のためにしっかり使われる」</strong>ように、私たちができることを。<br>私たちは日本の価値を使って、それを世界に表現していきたいのです。<br>そうすれば世界の経済も変わっていく。",
-                vision_p4: "たとえ小さくても、この凄まじいスピードで変わる世界で、多くの希望を求める方々のためのヒントとなる存在となりたい。",
-                vision_p5: "経済活動を通じて、持続可能な希望のサイクルを作り出す。<br>それが、私たちが推進する「Humanitarian Economy（人道経済）」です。",
-                vision_p6: "今回のプロジェクトは、その壮大なビジョンへの重要な第一歩です。",
-                vision_btn: "UZUSHIO Holdings 株式会社 公式サイトへ",
-                pdf_download: "資料を見る",
-                history_title: "伝説のすた丼屋：創業からの魂と、世界への挑戦",
-                history_sub: "1971年創業。「旨いものを腹いっぱい食べて頑張ってほしい」という親父の想い。",
-                history_p1: "東京都国立市。あるラーメン店の店主が「若いやつらに安くて旨いものを腹いっぱい食わせてやりたい」という熱い想いで生み出したのが「すた丼」の始まりです。秘伝のニンニク醤油ダレで炒めた豚肉は、食べた瞬間に活力がみなぎる唯一無二の味として、半世紀以上愛され続けています。",
-                vision_section_title: "世界に希望を与える日本食レストランへ",
-                vision_content: "運営する株式会社アントワークスの企業理念は『食を通じて、日本全国さらには世界の人々の底力となる』こと。<br>単なる飲食店ではなく、食を通じて人々にエネルギーを与え、世界に希望を与える代表的な日本食レストランになるとUZU Familyは信じています。",
-                why_box_title1: "セブの伝統文化「Lechon（レチョン）」",
-                why_box_p1: "セブ島には、スペイン統治時代の16世紀から続く、お祝いの席には欠かせない「豚の丸焼き（Lechon）」を囲む食文化があります。彼らにとって豚肉料理は、歴史的にも特別な「ハレの日」の象徴なのです。",
-                why_box_title2: "だからこそ、最高のプレゼントになる",
-                why_box_p2: "お肉たっぷりの丼ぶりをお腹いっぱい食べる。<br>それは、現地の人々にとって日常ではなかなか味わえない、心踊る最高の贅沢です。あなたの支援は、彼らにとって忘れられないクリスマスの「ご馳走」となります。",
-                pay_title_1: "あなたの500円が、",
-                pay_title_2: "誰かの「最高のクリスマスプレゼント」に。",
-                pay_step1_title: "【日本】",
-                pay_step1_sub: "スマホでチケット購入",
-                pay_step1_desc: "あなたの500円",
-                pay_step2_title: "【セブ島】",
-                pay_step2_sub: "熱々のすた丼が作られる",
-                pay_step2_desc: "イベント会場にて調理",
-                pay_step3_title: "【現地の方】",
-                pay_step3_sub: "笑顔で受け取る",
-                pay_step3_desc: "最高のプレゼント！",
-                pay_p1: "仕組みはシンプルです。あなたがこのサイトで「Pay It Forwardチケット（500円）」を購入すると、そのチケットがセブ島のイベント会場で温かい「すた丼」一杯に変わります。",
-                pay_p2: "あなたが贈るのは、ただの食事券ではありません。遠く離れた日本から、彼らを想う「温かい心」そのものです。<br class=\"hidden md:block\">今年のクリスマス、あなたもセブ島のサンタクロースになりませんか？",
-                outline_title_1: "日本・フィリピン共同開催",
-                outline_title_2: "クリスマスすた丼Pay It Forwardイベント概要",
-                venue_desc_1: "Mactan Newtown（マクタン・ニュータウン）は、フィリピン・セブ島のマクタン島（ラプラプ市）にある、1989年設立のフィリピン上場企業 Megaworld Corporation（メガワールド社）が開発する、約30ヘクタールに及ぶ「マスタープランタウンシップ（複合開発都市）」です。",
-                venue_desc_2: "Megaworld は、フィリピン証券取引所（PSE: MEG）に上場する国内最大級の不動産デベロッパーであり、これまでに国内外で800棟以上の住宅建物、150万㎡超のオフィススペース、50万㎡超の商業施設、5,000室以上のホテルを開発・運営してきた実績を持ちます。総資産は約4,700億フィリピンペソ（約1兆2,000億円相当）にのぼり、強固な財務基盤と透明性の高い企業統治で知られています。",
-                venue_desc_3: "Mactan Newtown はその代表的プロジェクトのひとつで、「住む・働く・学ぶ・楽しむ」が融合した次世代型都市として、住宅、オフィス、ホテル、学校、商業施設、リゾートビーチを一体的に整備。リゾートと都市機能を両立させた、“Live–Work–Play–Learn” の理念を体現するモデルタウンです。",
-                venue_desc_4: "その格式の高さから、<strong class=\"text-white border-b border-xmas-gold pb-0.5\">2026年「ASEAN首脳会議」の会場</strong>にも選定された特別な場所です。",
-                venue_desc_5: "しかし、その素顔は驚くほど開放的でフレンドリー。<br>週末には地元の家族連れや子供たちの笑い声が響き渡る、誰もが安心して過ごせる温かいコミュニティでもあります。",
-                venue_desc_6: "世界が注目するこの地で、Humanitarian Economy促進の覚書（MOU）を締結した<br class=\"hidden md:inline\">強力なパートナーの全面協力のもと、本イベントは開催されます。",
-                outline_dt_1: "日時",
-                outline_dd_1: "2025年12月20日（土）＆ 12月21日（日）<br><span class=\"text-sm font-normal text-gray-600\">各日 16:00〜21:00</span>",
-                outline_dt_2: "場所",
-                outline_dt_2_val: "The Mactan New Town Boardwalk<br><span class=\"text-gray-500 text-xs font-sans\">(The Mactan Newtown, Lapu-Lapu City, Mactan Island, Cebu)</span>",
-                outline_dt_3: "Price",
-                outline_dd_3_1: "Pay It Forward 1 bowl worth 500 yen",
-                outline_dd_3_2: "*Covered by everyone's support",
-                outline_goal: "The goal is to deliver energizing meals to as many people as possible.",
-                outline_help: "To do that, the power of everyone in Japan is essential.",
-                close_title_1: "May this base of hope overflow with smiles.",
-                close_title_2: "We are waiting for your warm support.",
-                close_p: "If this SUTADONYA container restaurant starts full-scale operation in January next year, we can support their lives in a more sustainable way. This Christmas project is an important bridge to that future.<br><br>Put Japan's hot cheers on hot Sutadon.<br>Let's give unforgettable Christmas smiles to children and families in Cebu Island together.",
-                close_btn_main: "Agree with this feeling and give Sutadon for Christmas",
-                close_btn_sub: "(Available for purchase from 500 yen per ticket)",
-                footer_tokusho: "Notation based on the Specified Commercial Transactions Act",
-                footer_privacy: "Privacy Policy",
-            },
-            en: {
-                header_cta: "Send Energy Now",
-                fv_badge: "Japan-Philippines Joint Project | Special Christmas Event",
-                fv_title_1: "This Christmas,",
-                fv_title_2: "Send a ",
-                fv_title_3: "Warm Gift",
-                fv_title_4: " to Cebu.",
-                fv_subtitle: "Your 500 yen becomes 'Japanese Energy' that lights up the future.",
-                fv_desc: "To the people of Cebu, Philippines, facing difficulties.<br>A Pay It Forward project by UZUSHIO Holdings and UZU PH<br class=\"hidden md:block\">to deliver smiles with the legendary Sutadon.",
-                fv_cta: "Send Vitality to Cebu Now",
-                fv_cta_sub: "(From 500 yen / Credit Card Accepted)",
-                msg_title_1: "Message from Cebu:",
-                msg_title_2: "Now, a hearty meal becomes vitality for the future.",
-                msg_p1: "While Japan is filled with Christmas mood, many people in Cebu, Philippines, across the sea, are still living difficult lives due to the effects of earthquakes and floods that occurred this year.",
-                msg_p2: "However, they have never lost hope. For them, a nutritious and energizing meal is not just about filling their stomachs, but a great vitality to live for tomorrow.",
-                msg_p3: "This Christmas, why don't we send a hearty Sutadon meal along with our cheers from Japan?",
-                story_title_1: "To Deliver 'Hope for the Future'.",
-                story_title_2: "Collaborators from Japan and Philippines are moving now.",
-                story_img_cap: "SUTADONYA Container Restaurant Surroundings",
-                story_img_cap_2: "Image Design",
-                story_p1: "To promote humanitarian aid by spreading Japanese values to the world, UZUSHIO Holdings first proceeded with the establishment of a local subsidiary 'UZU PH Enterprises Inc.' with our Filipino colleagues.",
-                story_p2: "As a representative of Japanese food culture, we have been preparing the 'SUTADONYA Container Restaurant' at The Mactan Newtown in Cebu so that we can deliver 'Legendary Sutadon' anywhere in the Philippines.",
-                story_p3: "Aiming for full-scale operation in January 2026, this SUTADONYA Container Restaurant was supposed to be a new base of hope for Cebu. However, during the preparation, we learned that the local people were in a difficult situation, and as we went out to support them in a small way, it became an opportunity to think about what we could do.",
-                story_quote: "\"We want to give Sutadon Christmas presents to children who felt anxious due to natural disasters and those who were affected.\"",
-                story_p4: "We decided to implement a special project this Christmas, ahead of the full-scale start in 2026. This is the first step for Japan and the Philippines to join hands and create future smiles.",
-                story_photo_caption: "Scenes of support activities on the ground",
-                vision_title_1: "Visible and Invisible",
-                vision_title_2: "Supporting Food, Clothing, and Shelter with Japanese Values.",
-                vision_subtitle: "~The Humanitarian Economy We Aim For~",
-                vision_p1: "We, UZUSHIO Holdings, seriously believe that 'Japanese values' contribute to world peace.",
-                vision_p2: "We fear that simply continuing modern capitalism will make it difficult to secure food, clothing, shelter, and happiness for billions of people around the world.",
-                vision_p3: "That is why we want to do what we can so that the capital created so far is used not only to generate capital but also <strong class=\"text-white font-bold border-b border-white/50\">'firmly used for human food, clothing, and shelter'</strong>.<br>We want to express this to the world using Japanese values.<br>If we do so, the world economy will also change.",
-                vision_p4: "Even if it is small, we want to be a hint for those who seek a lot of hope in this rapidly changing world.",
-                vision_p5: "Creating a sustainable cycle of hope through economic activities.<br>That is the 'Humanitarian Economy' we promote.",
-                vision_p6: "This project is an important first step toward that grand vision.",
-                vision_btn: "Visit UZUSHIO Holdings Official Site",
-                pdf_download: "View Document",
-                history_title: "Legendary Sutadon: Soul from Founding & Challenge to the World",
-                history_sub: "Est. 1971. Started from a father's wish: \"I want young people to eat delicious food and do their best.\"",
-                history_p1: "In 1971, in Kunitachi, Tokyo. A ramen shop owner created \"Sutadon\" with a passionate desire to \"let young guys eat cheap and delicious food to their heart's content.\" Pork stir-fried with secret garlic soy sauce has been loved for over half a century as a unique taste that fills you with vitality the moment you eat it.",
-                vision_section_title: "To be a Japanese Restaurant that Gives Hope to the World",
-                vision_content: "The corporate philosophy of Antoworks Co., Ltd. is 'To be the underlying strength of people all over Japan and even the world through food.'<br>The UZU Family believes that they will become a representative Japanese restaurant that gives energy to people through food and gives hope to the world, not just a mere eatery.",
-                why_box_title1: "Cebu's Traditional Culture 'Lechon'",
-                why_box_p1: "Cebu Island has a food culture of gathering around a 'Roasted Pig (Lechon)', indispensable for celebrations, which continues from the Spanish colonial era in the 16th century. For them, pork dishes are historically a symbol of special 'Celebration Days'.",
-                why_box_title2: "That's why it becomes the best present",
-                why_box_p2: "Eating a bowl full of meat to the fullest.<br>That is the best luxury that makes your heart dance, which local people can rarely taste in their daily lives. Your support will be an unforgettable Christmas 'Feast' for them.",
-                pay_title_1: "Send a Warm Gift",
-                pay_title_2: "to Cebu.",
-                pay_step1_title: "[Japan]",
-                pay_step1_sub: "Buy ticket on smartphone",
-                pay_step1_desc: "Your 500 yen",
-                pay_step2_title: "[Cebu]",
-                pay_step2_sub: "Hot Sutadon is cooked",
-                pay_step2_desc: "Cooking at the event venue",
-                pay_step3_title: "[Locals]",
-                pay_step3_sub: "Receive with a smile",
-                pay_step3_desc: "The Best Present!",
-                pay_p1: "The mechanism is simple. When you purchase a 'Pay It Forward Ticket (500 yen)' on this site, that ticket turns into a warm cup of 'Sutadon' at the event venue in Cebu Island.",
-                pay_p2: "What you are giving is not just a meal ticket. It is the 'warm heart' itself that thinks of them from far away Japan.<br class=\"hidden md:block\">Why don't you become a Santa Claus in Cebu this Christmas?",
-                outline_title_1: "Japan-Philippines Joint Event",
-                outline_title_2: "Christmas Sutadon Pay It Forward Event Overview",
-                venue_desc_1: "Mactan Newtown is a 30-hectare \"Master-planned Township\" developed by Megaworld Corporation, a listed Philippine company established in 1989, located in Lapu-Lapu City, Mactan Island, Cebu, Philippines.",
-                venue_desc_2: "Megaworld is one of the largest real estate developers listed on the Philippine Stock Exchange (PSE: MEG), with a track record of developing and operating over 800 residential buildings, over 1.5 million sqm of office space, over 500,000 sqm of commercial facilities, and over 5,000 hotel rooms domestically and internationally. Total assets amount to approximately 470 billion Philippine pesos (equivalent to approximately 1.2 trillion yen), and it is known for its strong financial base and highly transparent corporate governance.",
-                venue_desc_3: "Mactan Newtown is one of its flagship projects, integrating residential, office, hotel, school, commercial facilities, and resort beach as a next-generation city where \"Live, Work, Learn, and Play\" are fused. It is a model town that embodies the philosophy of \"Live–Work–Play–Learn\" by balancing resort and urban functions.",
-                venue_desc_4: "Because of its high prestige, it is a special place selected as the <strong class=\"text-white border-b border-xmas-gold pb-0.5\">venue for the \"ASEAN Summit\" to be held in 2026</strong>.",
-                venue_desc_5: "However, its real face is surprisingly open and friendly.<br>It is also a warm community where everyone can spend time with peace of mind, with the laughter of local families and children echoing on weekends.",
-                venue_desc_6: "In this place that the world pays attention to, this event will be held with the full cooperation of a powerful partner who has signed a Memorandum of Understanding (MOU) for the promotion of Humanitarian Economy.",
-                outline_dt_1: "Date",
-                outline_dd_1: "Dec 20 (Sat) & Dec 21 (Sun), 2025<br><span class=\"text-sm font-normal text-gray-600\">16:00 - 21:00 each day</span>",
-                outline_dt_2: "Location",
-                outline_dt_2_val: "The Mactan New Town Boardwalk<br><span class=\"text-gray-500 text-xs font-sans\">(The Mactan Newtown, Lapu-Lapu City, Mactan Island, Cebu)</span>",
-                outline_dt_3: "Price",
-                outline_dd_3_1: "Pay It Forward 1 bowl worth 500 yen",
-                outline_dd_3_2: "*Covered by everyone's support",
-                outline_goal: "The goal is to deliver energizing meals to as many people as possible.",
-                outline_help: "To do that, the power of everyone in Japan is essential.",
-                close_title_1: "May this base of hope overflow with smiles.",
-                close_title_2: "We are waiting for your warm support.",
-                close_p: "If this SUTADONYA container restaurant starts full-scale operation in January next year, we can support their lives in a more sustainable way. This Christmas project is an important bridge to that future.<br><br>Put Japan's hot cheers on hot Sutadon.<br>Let's give unforgettable Christmas smiles to children and families in Cebu Island together.",
-                close_btn_main: "Agree with this feeling and give Sutadon for Christmas",
-                close_btn_sub: "(Available for purchase from 500 yen per ticket)",
-                footer_tokusho: "Notation based on the Specified Commercial Transactions Act",
-                footer_privacy: "Privacy Policy",
-            }
-        };
-
-        let currentLang = 'ja';
-
-        // グローバル関数として定義
-        window.toggleLanguage = function() {
-            currentLang = currentLang === 'ja' ? 'en' : 'ja';
-            updateContent();
-            updateButtonLabel();
-        };
-
-        function updateButtonLabel() {
-            const label = document.getElementById('lang-label');
-            if(label) label.textContent = currentLang === 'ja' ? 'English' : '日本語';
-        }
-
-        function updateContent() {
-            const elements = document.querySelectorAll('[data-i18n]');
-            elements.forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[currentLang][key] !== undefined) {
-                    element.innerHTML = translations[currentLang][key];
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId.startsWith('#')) {
+                    e.preventDefault();
+                    const element = document.querySelector(targetId);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                    }
                 }
             });
-        }
+        });
     </script>
 </body>
 </html>
