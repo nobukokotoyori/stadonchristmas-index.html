@@ -74,18 +74,9 @@
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
         }
 
-        /* 文字出現アニメーション用CSS */
         @keyframes letterReveal {
-            0% {
-                opacity: 0;
-                filter: blur(10px);
-                transform: translateY(10px);
-            }
-            100% {
-                opacity: 1;
-                filter: blur(0);
-                transform: translateY(0);
-            }
+            0% { opacity: 0; filter: blur(10px); transform: translateY(10px); }
+            100% { opacity: 1; filter: blur(0); transform: translateY(0); }
         }
 
         .letter {
@@ -125,28 +116,30 @@
                 和を以て、世界を癒やす。
                 <span class="eng-sub text-base md:text-xl block">Heal the World with Harmony.</span>
             </h1>
-            <p class="text-xl md:text-2xl lg:text-3xl font-oswald mb-10 text-sakura-pink tracking-[0.3em] font-bold uppercase italic opacity-80">
-                Whirlpool of Hope & Economy
+            
+            <p class="text-xl md:text-2xl lg:text-3xl font-oswald mb-10 text-sakura-pink tracking-[0.2em] font-bold uppercase italic opacity-80">
+                Resonance of Co-creation & Prosperity for All
             </p>
+            
             <div class="max-w-3xl mx-auto opacity-95 leading-relaxed mb-12 font-sans">
                 <p class="text-xl md:text-2xl font-light tracking-[0.05em] mb-4 text-glow">
                     目に見える・目に見えない「日本の価値」と共に。<br>
                     <span class="text-xs md:text-sm opacity-60 block mb-2 italic uppercase">With 'Japanese values,' both visible and invisible.</span>
                     衣食住を支え、<span class="text-uzu-gold font-bold uppercase tracking-widest">希望の渦（UZU）</span>を作る UZU WORLD。<br>
-                    <span class="text-xs md:text-sm opacity-60 block italic uppercase">Supporting life's essentials and creating the Whirlpool of Hope (UZU).</span>
+                    <span class="text-xs md:text-sm opacity-60 block italic uppercase">Supporting life's essentials and creating the Resonance of Co-creation.</span>
                 </p>
             </div>
             
             <a href="#content-hub" class="group relative inline-block border border-sakura-pink/40 text-sakura-pink font-black py-4 px-12 transition-all duration-300 backdrop-blur-sm text-base md:text-lg uppercase tracking-[0.2em] border-l-[8px] hover:bg-sakura-pink/10">
                 <span class="relative z-10 flex flex-col items-center">
                     <span>3月の未来へ <i class="fas fa-chevron-down ml-2 animate-bounce"></i></span>
-                    <span class="text-[9px] md:text-[11px] font-normal opacity-60 tracking-widest">To the Future in March</span>
+                    <span class="text-[9px] md:text-[11px] font-normal opacity-60 tracking-widest">Toward Prosperity for All</span>
                 </span>
             </a>
         </div>
     </section>
 
-    <!-- 【Philosophy】 -->
+    <!-- 【Philosophy】 尊厳と真の豊かさを両立させた修正 -->
     <section id="philosophy" class="py-12 bg-white relative">
         <div class="max-w-5xl mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center gap-8 bg-gray-50 border border-gray-100 p-8 shadow-sm relative overflow-hidden">
@@ -154,12 +147,12 @@
                 <div class="md:w-1/2 text-left">
                     <span class="text-uzu-gold text-[10px] tracking-[0.5em] mb-2 font-oswald uppercase font-bold block">Philosophy / 真髄</span>
                     <p class="text-lg md:text-xl font-serif italic leading-relaxed text-gray-800">
-                        「現代の資本主義をただ継続するだけでは、人間の幸福感を確保することは難しい。資本が人間のために使われるよう、日本の価値を世界に表現したいのです。」
+                        「現代の資本主義をただ継続するだけでは、人間の<span class="text-uzu-blue font-bold">尊厳</span>と<span class="text-uzu-blue font-bold">真の豊かさ</span>を確保することは難しい。資本が人間の幸福感のために使われるよう、日本の価値を世界に表現したいのです。」
                     </p>
                 </div>
                 <div class="md:w-1/2 text-left border-l border-gray-200 pl-8">
                     <p class="text-[11px] md:text-[13px] italic leading-relaxed text-gray-500 uppercase tracking-wider">
-                        Traditional capitalism alone cannot sustain dignity. Our mission is to integrate Healing and Hope directly into the Economy by expressing Japanese values.
+                        Traditional capitalism alone cannot sustain human dignity and true prosperity. Our mission is to ensure capital serves human happiness by expressing Japanese values to the world.
                     </p>
                 </div>
             </div>
@@ -183,9 +176,9 @@
                     <div class="video-container shadow-2xl mb-4 border border-white/5">
                         <iframe src="https://www.youtube.com/embed/eLyIDxTTiHM" title="2025 Report" frameborder="0" allowfullscreen></iframe>
                     </div>
-                    <p class="text-xs font-light leading-relaxed opacity-80 mt-auto text-left lg:text-left">
+                    <p class="text-xs font-light leading-relaxed opacity-80 mt-auto text-left">
                         あの日灯した光が、どのように現地の笑顔と<span class="text-uzu-gold font-bold">「希望の渦（UZU）」</span>に変わったのか。<br>
-                        <span class="block mt-1 opacity-50 italic">How the light we lit that day transformed into smiles and the Whirlpool of Hope (UZU).</span>
+                        <span class="block mt-1 opacity-50 italic">How co-creation transformed into smiles and prosperity for all.</span>
                     </p>
                 </div>
 
@@ -205,7 +198,7 @@
                     <p class="text-[9px] opacity-60 uppercase tracking-widest mb-2 italic">Christmas Emergency Project in Cebu</p>
                     <p class="text-xs font-light leading-relaxed opacity-80 mb-4">
                         伝説のすた丼を通じて「日本の元気」を届け、未来の笑顔を作るための最初の一歩を刻みました。<br>
-                        <span class="block mt-1 opacity-50 italic">Delivering 'Japanese Vitality' through Sutadonya, marking the first step toward future smiles.</span>
+                        <span class="block mt-1 opacity-50 italic">Co-creating 'Japanese Vitality' through Sutadonya to bring prosperity for all.</span>
                     </p>
                     <a href="https://uzuworld.com/sutadon_christmas2025" class="mt-auto inline-flex items-center text-[10px] font-black border-b border-uzu-gold/50 pb-0.5 hover:text-uzu-gold transition-all tracking-[0.2em] uppercase">VIEW DETAILS / 詳細を表示 <i class="fas fa-chevron-right ml-2"></i></a>
                 </div>
@@ -223,7 +216,7 @@
                         <div class="text-2xl md:text-3xl font-black text-sakura-pink italic tracking-[0.2em] mb-4 uppercase">Sakura Bloom</div>
                         <p class="text-xs font-light leading-relaxed opacity-80 mb-6 max-w-[240px]">
                             セブ島にて開催される1万人規模の歴史的コンサート。
-                            <span class="block text-[10px] opacity-50 italic mb-2">A historic 10,000-person concert held in Cebu.</span>
+                            <span class="block text-[10px] opacity-50 italic mb-2">A historic concert for the co-creation of prosperity for all.</span>
                             <span class="text-white font-bold">人道経済正式ローンチ</span>。
                             <span class="block text-[10px] opacity-50 italic font-normal">Official Launch of Humanitarian Economy.</span>
                         </p>
@@ -252,10 +245,10 @@
             </div>
             
             <nav class="flex flex-wrap justify-center gap-x-8 gap-y-6 mb-14 text-[11px] md:text-[13px] text-gray-500 font-black uppercase tracking-[0.3em]">
-                <a href="https://uzuworld.com/sutadon_christmas2025" class="hover:text-uzu-blue transition-colors">Christmas Project / プロジェクト</a>
-                <a href="https://uzuworld.com/thankyouletter_sutadon_christmas2025" class="hover:text-uzu-blue transition-colors">Thank you Report / お礼レポート</a>
+                <a href="https://uzuworld.com/sutadon_christmas2025" class="hover:text-uzu-blue transition-colors">Christmas Project</a>
+                <a href="https://uzuworld.com/thankyouletter_sutadon_christmas2025" class="hover:text-uzu-blue transition-colors">Thank you Report</a>
                 <a href="https://uzuworld.com/sakurabloom2026" class="hover:text-uzu-blue text-sakura-dark underline underline-offset-4 decoration-2">Sakura Bloom 2026</a>
-                <a href="https://uzushio-holdings.com/" target="_blank" class="hover:text-uzu-blue transition-colors uppercase font-normal opacity-60">Corporate Site / 企業サイト</a>
+                <a href="https://uzushio-holdings.com/" target="_blank" class="hover:text-uzu-blue transition-colors uppercase font-normal opacity-60">Corporate Site</a>
             </nav>
 
             <!-- UZUWORLD SNS Section -->
@@ -271,36 +264,33 @@
 
             <!-- SUTADONYA CEBU SNS Section -->
             <div class="mb-12 pt-6 border-t border-gray-200/50 max-w-[200px] mx-auto">
-                <!-- 文字をアイコンの前に設置（スタイルをUZUWORLDと統一） -->
                 <div class="text-gray-400 font-black text-[11px] md:text-[13px] tracking-[0.4em] uppercase mb-6">SUTADONYA CEBU</div>
                 <a href="https://www.facebook.com/sutadonyacebuph" target="_blank" class="hover:text-red-700 transition-all flex flex-col items-center gap-2 group">
                     <i class="fab fa-facebook text-3xl text-gray-300 group-hover:text-red-700 transition-colors"></i>
                 </a>
             </div>
 
-            <p class="text-[10px] md:text-[12px] text-gray-400 tracking-[0.3em] uppercase mb-4 font-bold">Building the Humanitarian Economy / 人道経済の構築</p>
+            <p class="text-[10px] md:text-[12px] text-gray-400 tracking-[0.3em] uppercase mb-4 font-bold">Building the Humanitarian Economy</p>
             <p class="text-[10px] md:text-[11px] text-gray-300 tracking-[0.1em] font-light italic">&copy; 2026 UZUSHIO Holdings / UZU PH Enterprises Inc.</p>
         </div>
     </footer>
 
     <script>
-        // 文字出現アニメーションの実行
         window.onload = function() {
             const tag = document.getElementById('animated-tag');
-            const text = tag.textContent.trim();
-            tag.textContent = ''; // 一旦クリア
-
-            // スペースも含めて一文字ずつspanで囲む
-            [...text].forEach((char, i) => {
-                const span = document.createElement('span');
-                span.textContent = char === ' ' ? '\u00A0' : char; // スペースの維持
-                span.className = 'letter';
-                span.style.animationDelay = `${i * 0.05}s`; // 順次遅らせる
-                tag.appendChild(span);
-            });
+            if (tag) {
+                const text = tag.textContent.trim();
+                tag.textContent = ''; 
+                [...text].forEach((char, i) => {
+                    const span = document.createElement('span');
+                    span.textContent = char === ' ' ? '\u00A0' : char; 
+                    span.className = 'letter';
+                    span.style.animationDelay = `${i * 0.05}s`; 
+                    tag.appendChild(span);
+                });
+            }
         };
 
-        // スムーススクロール
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const targetId = this.getAttribute('href');
