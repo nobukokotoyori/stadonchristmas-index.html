@@ -193,8 +193,15 @@
                 </p>
             </div>
             <div class="flex flex-col md:flex-row gap-4">
-                <a href="#payment" class="bg-gradient-to-r from-sakura-accent to-pink-600 text-white font-bold py-4 px-10 rounded-full shadow-[0_0_20px_rgba(233,78,119,0.5)] hover:shadow-[0_0_30px_rgba(233,78,119,0.7)] transition transform hover:-translate-y-1 min-w-[240px] text-lg">
-                    <i class="fas fa-hand-holding-heart mr-2"></i><span data-i18n="btn_support">プロジェクトに参加する</span>
+                <a href="#payment" class="bg-gradient-to-r from-sakura-accent to-pink-500 text-white font-bold py-1.5 px-3 rounded-full shadow-md text-[10px] whitespace-nowrap flex items-center hover:scale-105 transition">
+                    <i class="fas fa-heart mr-1"></i> Pay It Forward
+                </a>
+                <button type="button" onclick="window.toggleLanguage()" class="flex items-center gap-1 text-uzu-blue hover:text-sakura-accent transition text-sm md:text-base px-2 py-1 md:px-3 rounded-full border border-gray-200 hover:bg-pink-50 cursor-pointer">
+                    <i class="fas fa-globe"></i>
+                    <span id="lang-label" class="text-xs md:text-base">English</span>
+                </button>
+                <a href="#payment" class="hidden md:block bg-gradient-to-r from-sakura-accent to-pink-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transition transform hover:scale-105 text-sm">
+                    <i class="fas fa-heart mr-2"></i> Pay It Forward
                 </a>
             </div>
         </div>
@@ -209,13 +216,19 @@
                  <a href="https://flowerangel.org/hinomotoichi-globalfamily" target="_blank" rel="noopener noreferrer" class="w-32 md:w-48 hover:scale-105 transition duration-300 block">
                     <img src="globalfamily.jpg" alt="Global Family" class="w-full h-auto object-contain drop-shadow-md" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x100/ffffff/cccccc?text=Global+Family';">
                 </a>
-                <!-- J Pride moved here -->
-                <div class="w-24 md:w-36 hover:scale-105 transition duration-300 block">
+                <!-- J Pride logo slightly smaller -->
+                <div class="w-20 md:w-28 hover:scale-105 transition duration-300 block">
                     <img src="jpride.jpg" alt="J Pride" class="w-full h-auto object-contain drop-shadow-md" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x75/ffffff/cccccc?text=J+Pride';">
                 </div>
             </div>
 
-            <!-- Main Sponsors (Temporarily hidden/removed jlounge) -->
+            <!-- Main Sponsors (J Lounge only) -->
+            <p class="text-uzu-blue font-oswald text-xs md:text-sm tracking-[0.2em] uppercase mb-6 opacity-80" data-i18n="main_sponsors_label">Main Sponsors</p>
+            <div class="flex flex-wrap justify-center items-center gap-6 md:gap-12 mb-12">
+                <div class="w-24 md:w-32 hover:scale-105 transition duration-300 block">
+                    <img src="jlounge.jpg" alt="J Lounge" class="w-full h-auto object-contain drop-shadow-md" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x75/ffffff/cccccc?text=J+Lounge';">
+                </div>
+            </div>
 
             <!-- Official Sponsors -->
             <p class="text-sakura-accent font-oswald text-xs md:text-sm tracking-[0.2em] uppercase mb-8 opacity-80" data-i18n="sponsors_label">Official Sponsors</p>
@@ -251,7 +264,7 @@
                     <span data-i18n="journey_title">Island to Island Peace Project</span>
                 </h2>
                 <p class="mt-6 text-gray-600 max-w-2xl mx-auto leading-relaxed" data-i18n="journey_desc">
-                    セブ島のピンクシャワーから始まり、日本の本物の桜、そしてハワイのALOHAへ。<br>
+                    セブ島のピンクシャワーから始まり、日本の本物の桜、そして世界へ。<br>
                     国境を越え、経済と人道の融合を証明する20日間の旅路。
                 </p>
             </div>
@@ -349,9 +362,9 @@
                     <div class="max-w-4xl mx-auto w-full h-full flex flex-col justify-center">
                         <h3 class="text-xl md:text-4xl font-bold mb-4 md:mb-6 text-gray-200 border-b border-gray-700 pb-2 md:pb-4 text-left" data-i18n="manifest_1_title">1. 崩れゆく旧世界、鏡としての地球</h3>
                         <div class="text-xs md:text-lg text-gray-300 space-y-3 md:space-y-4 text-justify md:text-left overflow-y-auto max-h-[60vh] md:max-h-none manifest-scroll pr-2">
-                            <p data-i18n="manifest_1_p1">今日の正解が明日の不正解になる。そんな、頼るものなど何一つない world になりました。昨日までの常識が通用しなくなり、巨大な金融システムも, 古びた政治の論理も、今まさに音を立てて崩れ落ちています。</p>
+                            <p data-i18n="manifest_1_p1">今日の正解が明日の不正解になる。そんな, 頼るものなど何一つない world になりました。昨日までの常識が通用しなくなり、巨大な金融システムも, 古びた政治の論理も、今まさに音を立てて崩れ落ちています。</p>
                             <p data-i18n="manifest_1_p2">世界中で荒れ狂う洪水や火災, それして地震。これらは利己的な「人間の欲」を鏡として映し出している地球そのものの姿なのかもしれません。私たちは忘れていません。昨年のセブ, 洪水や地震の悲劇の中、助かるはずだった命が汚職や私欲によって見捨てられた事実を。その絶望と怒りが、今、世界中の暗闇を深くしています。</p>
-                            <p class="border-l-4 border-sakura-accent pl-4 italic bg-white/5 p-3 rounded" data-i18n="manifest_1_p3">しかし、私たちは恐れません。既存のシステムが命を救えず, 行く先も見えない暗闇が深まるその場所にこそ, 人間本来の尊厳を基盤とし、自分たちの手で直接支え合う<strong class="text-white">「Humanitarian Economy」</strong>が立ち上がるからです。</p>
+                            <p class="border-l-4 border-sakura-accent pl-4 italic bg-white/5 p-3 rounded" data-i18n="manifest_1_p3">しかし, 私たちは恐れません。既存のシステムが命を救えず, 行く先も見えない暗闇が深まるその場所にこそ, 人間本来の尊厳を基盤とし、自分たちの手で直接支え合う<strong class="text-white">「Humanitarian Economy」</strong>が立ち上がるからです。</p>
                         </div>
                     </div>
                 </div>
@@ -1047,7 +1060,7 @@
                 manifest_1_p2: "世界中で荒れ狂う洪水や火災, それして地震。これらは利己的な「人間の欲」を鏡として映し出している地球そのものの姿なのかもしれません。私たちは忘れていません。昨年のセブ, 洪水や地震の悲劇の中、助かるはずだった命が汚職や私欲によって見捨てられた事実を。その絶望と怒りが、今、世界中の暗闇を深くしています。",
                 manifest_1_p3: "しかし, 私たちは恐れません。既存のシステムが命を救えず, 行く先も見えない暗闇が深まるその場所にこそ, 人間本来の尊厳を基盤とし、自分たちの手で直接支え合う<strong class='text-white'>「Humanitarian Economy」</strong>が立ち上がるからです。",
                 manifest_2_title: "2. 「分断」から「循環」へ：慈善とビジネスの融合",
-                manifest_2_intro: "これまで、社会貢献としての「慈善」と、利益を追求する「ビジネス」は分断されていました。しかし、これらを繋ぎ, 人間社会と地球環境を大きく循環させることこそが、本来あるべき「Humanitarian Economy」の姿です。",
+                manifest_2_intro: "これまで、社会貢献としての「慈善」と, 利益を追求する「ビジネス」は分断されていました。しかし, これらを繋ぎ, 人間社会と地球環境を大きく循環させることこそが、本来あるべき「Humanitarian Economy」の姿です。",
                 manifest_2_sub1_title: "・1万食の恩送り（Pay It Forward）",
                 manifest_2_sub1_text: "これは単なる食事の配布ではありません。ここから2026年8月まで、1万人が日本のソウルフードに触れて、その一人ひとりが「次は自分が誰かの力になる」と決意する。その1万個の想いが繋がった瞬間、強固な希望のネットワークが生まれます。",
                 manifest_2_sub2_title: "・文化交流：日本の精神（こころ）を繋ぐ",
