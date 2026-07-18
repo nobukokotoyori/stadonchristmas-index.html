@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAKURA BLOOM 2027 | UZU WORLD</title>
+    <!-- Tailwind CSS for modern fluid responsive design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: EB Garamond (Classical Serif), Noto Serif JP (Elegant Japanese) & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Noto+Serif+JP:wght@200;300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Social & Interactive Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Traditional Japanese Navy and Ivory/Skin warm palette
+                        brandNavy: '#0c162c',       // Base Deep Navy
+                        brandNavyLight: '#142346',  // Panel Blue
+                        brandIvory: {
+                            light: '#fdfaf2',       // Warmest skin tone / highlight
+                            DEFAULT: '#f5efe6',     // Traditional elegant Ivory
+                            dark: '#e3d8c4',        // Deep skin tone / border
+                        },
+                        brandGold: '#dfc49c',       // Soft Imperial Gold
+                        brandSakura: '#fbcfe8',     // Soft Sakura Pink
+                        brandAccent: '#f472b6'      // Vibrant Accent Pink
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['EB Garamond', 'Noto Serif JP', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #0c162c; /* Deep Navy Base */
+            color: #f5efe6;            /* Elegant Ivory text */
+            font-family: 'Inter', 'Noto Serif JP', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Premium Soft Gold gradient for title text */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #fdfaf2 0%, #dfc49c 50%, #b89a6c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Sakura light shimmer gradient with strict text-clipping prevention hack */
+        .text-sakura-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #fbcfe8 60%, #f472b6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
+            /* Powerful bounding box expansion hack to prevent italic 'y' clipping */
+            display: inline-block !important;
+            padding-right: 0.4em !important;
+            margin-right: -0.4em !important;
+            overflow: visible !important;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+        }
+
+        /* Bilateral Language display control */
+        html[lang="ja"] .lang-en { display: none !important; }
+        html[lang="en"] .lang-ja { display: none !important; }
+
+        /* Fine organic overlay to simulate Japanese paper (Washi) */
+        .washi-overlay {
+            background-image: radial-gradient(rgba(245, 239, 230, 0.05) 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+
+        /* Smooth reveal animation for interactive content */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-element.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Premium minimalistic ring decoration to replace cheap icons */
+        .premium-ring {
+            position: relative;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            border: 1px solid rgba(223, 196, 156, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .premium-ring::after {
+            content: '';
+            position: absolute;
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 50%;
+            border: 1px solid rgba(223, 196, 156, 0.6);
+        }
+        .premium-ring-inner {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background-color: #dfc49c;
+        }
+    </style>
+</head>
+<body class="antialiased washi-overlay">
+
+    <!-- TOP ENGAGEMENT BAR (HEADER) - SAKURA BLOOM 2027 is proudly on the left -->
+    <header class="sticky top-0 z-50 w-full bg-brandNavy/95 backdrop-blur-md border-b border-brandIvory/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+            <!-- Brand Logotype (SAKURA BLOOM 2027 | UZU WORLD | UZUSHIO Holdings × UZU PH) -->
+            <div class="flex items-center space-x-1 sm:space-x-3 overflow-hidden">
+                <span class="text-xs sm:text-base md:text-lg font-serif font-bold tracking-widest text-brandGold shrink-0">SAKURA BLOOM 2027</span>
+                <span class="text-brandIvory/30 text-xs shrink-0">|</span>
+                <span class="text-[10px] sm:text-xs md:text-sm font-light tracking-wider text-brandIvory/70 shrink-0">UZU WORLD</span>
+                <span class="text-brandIvory/30 text-xs hidden sm:inline shrink-0">|</span>
+                <span class="text-[8px] sm:text-[10px] md:text-xs font-light tracking-wider text-brandGold/80 hidden sm:inline shrink-0">UZUSHIO Holdings × UZU PH</span>
+            </div>
+
+            <!-- Language Switcher Actions -->
+            <div class="flex items-center space-x-3 sm:space-x-6 shrink-0">
+                <button onclick="toggleLanguage()" class="flex items-center space-x-1.5 sm:space-x-2 bg-brandNavyLight/80 hover:bg-brandNavyLight border border-brandGold/30 hover:border-brandGold px-3 py-1 sm:px-4 sm:py-1.5 rounded-full transition-all duration-300 text-xs text-brandIvory-light font-medium tracking-wider">
+                    <i class="fa-solid fa-globe text-[10px] sm:text-xs"></i>
+                    <span class="lang-ja">EN</span>
+                    <span class="lang-en font-serif">日本語</span>
+                </button>
+                
+                <a href="#contact" class="hidden md:inline-flex items-center bg-gradient-to-r from-brandGold to-brandIvory hover:from-brandIvory hover:to-white text-brandNavy font-semibold px-5 py-1.5 rounded-full text-xs tracking-wider transition-all duration-300 shadow-md">
+                    <span class="lang-ja">お問い合わせ</span>
+                    <span class="lang-en font-serif">Inquire</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden py-24 px-4 border-b border-brandIvory/5">
+        <!-- Deep blue and ivory abstract radial light -->
+        <div class="absolute inset-0 pointer-events-none opacity-20">
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-br from-brandIvory/10 to-brandGold/5 rounded-full blur-[120px] animate-pulse"></div>
+            <div class="absolute bottom-10 right-10 w-[300px] h-[300px] bg-brandSakura/10 rounded-full blur-[80px]"></div>
+        </div>
+
+        <div class="relative max-w-5xl mx-auto text-center z-10 space-y-10 reveal-element active">
+            <!-- Dynamic Category Label -->
+            <div class="inline-flex items-center space-x-2 bg-brandNavyLight border border-brandGold/40 px-5 py-2 rounded-full text-xs sm:text-sm tracking-widest text-brandIvory uppercase">
+                <span class="lang-ja font-light">人道支援経済 — 新世紀のゲートウェイ</span>
+                <span class="lang-en font-serif font-light pr-1">Humanitarian Economy — The New Global Dawn</span>
+            </div>
+
+            <!-- Grand Cinematic Title -->
+            <h1 class="text-4xl sm:text-6xl md:text-8xl font-serif tracking-tight leading-none space-y-4">
+                <span class="text-gold-gradient block font-medium">The Dawn of</span>
+                <span class="text-sakura-gradient italic font-light">Humanitarian Economy&nbsp;</span>
+            </h1>
+
+            <!-- Powerful Core Statements -->
+            <div class="max-w-3xl mx-auto space-y-6 text-base sm:text-xl text-brandIvory/80 font-light leading-relaxed">
+                <p class="lang-ja font-serif text-brandIvory-light tracking-wider border-l-2 border-brandGold pl-4 py-1.5 inline-block text-left sm:text-center">
+                    日本から、The Mactan Newtownを経由して世界へ。<br class="hidden sm:block">
+                    世界から、このThe Mactan Newtownを中継して日本へ。
+                </p>
+                <p class="lang-en font-serif text-brandIvory-light tracking-wider border-l-2 border-brandGold pl-4 py-1.5 inline-block text-left sm:text-center">
+                    From Japan to the World via The Mactan Newtown.<br class="hidden sm:block">
+                    From the World through The Mactan Newtown to Japan.
+                </p>
+
+                <div class="h-px w-32 bg-gradient-to-r from-transparent via-brandGold to-transparent mx-auto my-8"></div>
+
+                <p class="lang-ja font-light">
+                    フィリピン・セブ島の最進化特区「The Mactan Newtown」。<br class="hidden sm:block">
+                    私たちはこの1,200㎡を超える圧倒的な敷地に、日本と世界を双方向で繋ぐ、まったく新しい人道支援経済のグローバルハブ<strong class="text-brandGold font-normal font-serif">【UZU VILLAGE】</strong>を構築します。
+                </p>
+                <p class="lang-en font-serif font-light">
+                    In the rapidly evolving economic zone of "The Mactan Newtown" in Cebu, Philippines,<br class="hidden sm:block">
+                    we are establishing <strong class="text-brandGold font-normal">【UZU VILLAGE】</strong>—a state-of-the-art global hub of over 1,200+ sqm connecting Japan and the world in a bilateral humanitarian economic framework.
+                </p>
+
+                <p class="lang-ja text-sm sm:text-base text-brandIvory/60 font-light mt-6">
+                    2027年の「SAKURA BLOOM 2027」グランドオープンに向け、この世界へのゲートウェイから共に未来を世界展開していく、日本のパートナー企業・技術の担い手を募集します。
+                </p>
+                <p class="lang-en text-sm sm:text-base text-brandIvory/60 font-serif font-light mt-6">
+                    Towards the grand opening of "SAKURA BLOOM 2027" in 2027, we invite forward-thinking Japanese partner companies and technical innovators to co-create the future from this global gateway.
+                </p>
+            </div>
+
+            <!-- Interactive Navigation Arrow -->
+            <div class="pt-6">
+                <a href="#village" class="inline-flex items-center space-x-3 bg-brandNavyLight hover:bg-brandNavyLight/80 border border-brandIvory/10 hover:border-brandGold/80 px-8 py-3.5 rounded-full text-xs sm:text-sm font-semibold tracking-widest uppercase transition-all duration-300">
+                    <span class="lang-ja">ヴィレッジ構想を探る</span>
+                    <span class="lang-en font-serif">Explore the Vision</span>
+                    <i class="fa-solid fa-chevron-down text-brandGold animate-bounce"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- UZU VILLAGE SECTION -->
+    <section id="village" class="py-24 bg-brandNavyLight/30 relative border-b border-brandIvory/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
+                <span class="text-xs font-bold tracking-widest text-brandGold uppercase">SPATIAL INFRASTRUCTURE</span>
+                <h2 class="text-3xl sm:text-4xl font-serif tracking-wide text-gold-gradient">UZU VILLAGE</h2>
+                <p class="lang-ja text-brandIvory/60 font-light text-sm sm:text-base">日本文化、最先端技術、食文化が相互補完する1,200㎡超の特区設計</p>
+                <p class="lang-en text-brandIvory/60 font-serif font-light text-sm sm:text-base">A grand 1,200+ sqm village blueprint harmonizing Japanese aesthetics, infrastructure, and real economy</p>
+            </div>
+
+            <!-- Blueprint Card Grid Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                
+                <!-- Centerpiece Core Stage -->
+                <div class="lg:col-span-3 bg-[#112042] border border-brandGold/40 rounded-3xl p-8 sm:p-12 relative overflow-hidden reveal-element">
+                    <div class="absolute top-0 right-0 w-80 h-80 bg-brandGold/5 rounded-full blur-[60px] pointer-events-none"></div>
+                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 relative z-10">
+                        <div class="space-y-4 max-w-3xl">
+                            <span class="text-xs font-bold tracking-widest text-brandGold uppercase">The Spiritual Center of UZU</span>
+                            <h3 class="text-xl sm:text-2xl font-serif text-brandIvory-light font-semibold">
+                                <span class="lang-ja">【核心の舞台】和の精神を宿した舞台</span>
+                                <span class="lang-en font-serif">【The Sacred Stage】The Spirit of Wa</span>
+                            </h3>
+                            <p class="lang-ja text-brandIvory/80 text-sm sm:text-base leading-relaxed font-light">
+                                日本の伝統的な建築美と、古来より受け継がれてきた「目に見えない自然や平和への祈り」を捧げる空間の様式美をThe Mactan Newtownの地に建立します。Flower Angelをはじめとするグローバルアーティストが、世界へ向けて純粋な平和のエネルギーと極上のエンターテインメントを発信するヴィレッジの精神的象徴（核）です。引き算の美学と精神的品格をもって、空間全体に圧倒的な信頼性と品格を与えます。
+                            </p>
+                            <p class="lang-en text-brandIvory/80 text-sm sm:text-base leading-relaxed font-serif font-light">
+                                We will establish a traditional Japanese wooden performance pavilion honoring "the prayer for the unseen nature and peace" in The Mactan Newtown. It stands as the spiritual core where global icons like Harmony and local artists deliver pure, high-vibrational message and elite art. This space projects a visual hallmark of social reliability and prestige.
+                            </p>
+                        </div>
+                        <!-- Premium Minimal Ring Emblem -->
+                        <div class="shrink-0 flex items-center justify-center">
+                            <div class="premium-ring">
+                                <div class="premium-ring-inner"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shop 1: Culture & Lifestyle -->
+                <div class="bg-brandNavyLight/65 border border-brandIvory/10 hover:border-brandGold/40 rounded-2xl p-8 space-y-6 transition-all duration-300 flex flex-col justify-between reveal-element">
+                    <div class="space-y-4">
+                        <div class="premium-ring">
+                            <div class="premium-ring-inner"></div>
+                        </div>
+                        <h4 class="text-lg sm:text-xl font-serif font-semibold text-brandIvory-light">
+                            <span class="lang-ja">【文化・ライフスタイル枠】<br>エシカル伝統工芸 × 和モダン美</span>
+                            <span class="lang-en font-serif">【Culture & Lifestyle】<br>Ethical Crafts × Wa-Modern</span>
+                        </h4>
+                        <p class="lang-ja text-brandIvory/70 text-sm leading-relaxed font-light">
+                            日本の超高度な伝統技術や着物リメイクなどの和の意匠を、現地のサステナブルな雇用と融合。セブを訪れる世界のハイエンド層へ、最高峰 of 日本の美意識を提案・販売するハイクラス拠点。
+                        </p>
+                        <p class="lang-en text-brandIvory/70 text-sm leading-relaxed font-serif font-light">
+                            Blending Japan’s elite artisan crafts, such as upcycled Kimono apparel, with sustainable local livelihood. A premium boutique to present and sell Japan's unparalleled design philosophy to global travelers.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-brandIvory/10 flex items-center justify-between text-xs text-brandGold font-serif font-light">
+                        <span>30-50 sqm Temporary Antenna Shop</span>
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                </div>
+
+                <!-- Shop 2: Tech & Disaster Relief -->
+                <div class="bg-brandNavyLight/65 border border-brandIvory/10 hover:border-brandGold/40 rounded-2xl p-8 space-y-6 transition-all duration-300 flex flex-col justify-between reveal-element">
+                    <div class="space-y-4">
+                        <div class="premium-ring">
+                            <div class="premium-ring-inner"></div>
+                        </div>
+                        <h4 class="text-lg sm:text-xl font-serif font-semibold text-brandIvory-light">
+                            <span class="lang-ja">【テクノロジー・インフラ枠】<br>世界旅行案内 × 災害支援技術ハブ</span>
+                            <span class="lang-en font-serif">【Tech & Infrastructure】<br>Travel Concierge × Disaster Relief Hub</span>
+                        </h4>
+                        <p class="lang-ja text-brandIvory/70 text-sm leading-relaxed font-light">
+                            日本の美しい地域や地方観光の魅力を直接プレゼン。同時に、日本の誇る最新の持続可能なクリーンエネルギー・高度農業インフラ、および「命を守る高度な防災・災害支援技術」を世界の経営者・投資家へ披露するショールーム。
+                        </p>
+                        <p class="lang-en text-brandIvory/70 text-sm leading-relaxed font-serif font-light">
+                            Serving as an elite travel gateway showcasing Japan’s regional tourism assets. Concurrently functions as a high-tech showroom for Japan's advanced sustainable energy, organic agricultural technologies, and essential disaster-relief systems.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-brandIvory/10 flex items-center justify-between text-xs text-brandGold font-serif font-light">
+                        <span>30-50 sqm Technology Showroom</span>
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                </div>
+
+                <!-- Shop 3: Food Hub -->
+                <div class="bg-brandNavyLight/65 border border-brandIvory/10 hover:border-brandGold/40 rounded-2xl p-8 space-y-6 transition-all duration-300 flex flex-col justify-between reveal-element">
+                    <div class="space-y-4">
+                        <div class="premium-ring">
+                            <div class="premium-ring-inner"></div>
+                        </div>
+                        <h4 class="text-lg sm:text-xl font-serif font-semibold text-brandIvory-light">
+                            <span class="lang-ja">【フード・コ・クリエーション枠】<br>海外テストマーケティングハブ</span>
+                            <span class="lang-en font-serif">【Food Co-Creation】<br>Gastro Lab & Testing Hub</span>
+                        </h4>
+                        <p class="lang-ja text-brandIvory/70 text-sm leading-relaxed font-light">
+                            「SUTADONYA CEBU」に続く、日本の極上の食文化・地方農産物の海外進出実証拠点。現地特有の食材と日本クオリティの味覚を共創させ、アジアからグローバルへスケールアップするための実験的キッチンスペース。
+                        </p>
+                        <p class="lang-en text-brandIvory/70 text-sm leading-relaxed font-serif font-light">
+                            A high-profile testing pavilion for Japanese agricultural ingredients and culinary brands. Providing rapid global test-marketing frameworks alongside local agricultural integrations.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-brandIvory/10 flex items-center justify-between text-xs text-brandGold font-serif font-light">
+                        <span>10-30 sqm Active Gastro Lab</span>
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE & GIVEAWAY PROGRESS -->
+    <section class="py-24 bg-brandNavy relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- GIVEAWAY PROGRESS TRACKER -->
+            <div class="bg-[#122247] border border-brandGold/30 rounded-3xl p-8 sm:p-12 mb-24 relative overflow-hidden reveal-element">
+                <div class="absolute -top-12 -right-12 w-64 h-64 bg-brandSakura/5 rounded-full blur-[80px] pointer-events-none"></div>
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-10">
+                    <div class="space-y-4 max-w-2xl">
+                        <div class="inline-flex items-center space-x-2 bg-brandGold/10 border border-brandGold/20 px-4 py-1.5 rounded-full text-xs text-brandGold tracking-wider font-semibold">
+                            <span class="animate-pulse mr-1">●</span>
+                            <span class="lang-ja">食の人道支援実績</span>
+                            <span class="lang-en font-serif">Humanitarian Food Relief Active Record</span>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-serif text-brandIvory-light font-bold">
+                            <span class="lang-ja">「SUTADONYA CEBU」ギブアウェイ進捗</span>
+                            <span class="lang-en font-serif">"SUTADONYA CEBU" Giveaway Progress</span>
+                        </h3>
+                        <p class="lang-ja text-brandIvory/70 text-sm sm:text-base font-light">
+                            Blooming Dayを通じ、現地コミュニティ・学校・教会・孤児院・スラム街へ合計10,000食を直接配り届ける活動。
+                        </p>
+                        <p class="lang-en text-brandIvory/70 text-sm sm:text-base font-serif font-light">
+                            Directly feeding local communities, schools, orphanages, churches, and underprivileged urban families, heading towards 10,000 meals.
+                        </p>
+                    </div>
+
+                    <!-- Visual Progress Bar (1,125 / 10,000 Meals) -->
+                    <div class="w-full lg:w-[45%] space-y-4 bg-brandNavy/60 p-6 rounded-2xl border border-brandIvory/10">
+                        <div class="flex justify-between items-end text-sm sm:text-base font-semibold">
+                            <span class="text-brandGold font-light">1,125 / 10,000 <span class="text-xs text-brandIvory/50 font-normal">Meals Given</span></span>
+                            <span class="text-brandSakura font-serif">11.25%</span>
+                        </div>
+                        <div class="w-full bg-brandNavy/90 rounded-full h-4 overflow-hidden border border-brandIvory/15 p-0.5">
+                            <div class="bg-gradient-to-r from-brandGold via-brandIvory to-brandSakura h-full rounded-full transition-all duration-[1500ms] ease-out" style="width: 11.25%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TIMELINE SECTION HEADER -->
+            <div class="text-center max-w-3xl mx-auto mb-20 space-y-4 reveal-element">
+                <span class="text-xs font-bold tracking-widest text-brandGold uppercase">THE ARCHIVE</span>
+                <h2 class="text-3xl sm:text-4xl font-serif tracking-wide text-gold-gradient">THE PATH TO GRAND OPEN</h2>
+                <p class="lang-ja text-brandIvory/60 font-light text-sm sm:text-base">2027年の満開に向けて刻んできた、私たちの人道支援経済の証明</p>
+                <p class="lang-en text-brandIvory/60 font-serif font-light text-sm sm:text-base">Our established record of social trust towards the full bloom of 2027</p>
+            </div>
+
+            <!-- CHRONOLOGICAL TIMELINE PATH -->
+            <div class="relative max-w-4xl mx-auto border-l border-brandGold/30 pl-6 sm:pl-12 space-y-16">
+                <!-- Vertical Line Glow Gradient -->
+                <div class="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-brandGold via-brandSakura to-transparent pointer-events-none"></div>
+
+                <!-- Milestone 1 -->
+                <div class="relative group reveal-element">
+                    <div class="absolute -left-[31px] sm:-left-[55px] top-1.5 w-4 h-4 sm:w-6 sm:h-6 rounded-full bg-brandNavy border-2 border-brandGold group-hover:border-brandSakura transition-colors duration-300 flex items-center justify-center">
+                        <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-brandGold rounded-full"></div>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold tracking-widest text-brandGold uppercase">2025.12</span>
+                        <h4 class="text-xl font-serif text-brandIvory-light font-semibold">
+                            <span class="lang-ja">SUTADONYA CEBU クリスマスイベント</span>
+                            <span class="lang-en font-serif">SUTADONYA CEBU Christmas Event</span>
+                        </h4>
+                        <p class="lang-ja text-brandIvory/70 text-sm sm:text-base font-light">
+                            本オープンに先駆け、現地セブ島にて温かい食を直接届けるプレイベントを最速開催。地域の子供たちに笑顔の循環の種をまく。
+                        </p>
+                        <p class="lang-en text-brandIvory/70 text-sm sm:text-base font-serif font-light">
+                            Prior to formal opening, launched the preliminary food giving event in Cebu to seed happiness directly.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Milestone 2 -->
+                <div class="relative group reveal-element">
+                    <div class="absolute -left-[31px] sm:-left-[55px] top-1.5 w-4 h-4 sm:w-6 sm:h-6 rounded-full bg-brandNavy border-2 border-brandGold group-hover:border-brandSakura transition-colors duration-300 flex items-center justify-center">
+                        <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-brandGold rounded-full"></div>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold tracking-widest text-brandGold uppercase">2026.03.21 - 2026.03.27</span>
+                        <h4 class="text-xl font-serif text-brandIvory-light font-semibold">
+                            <span class="lang-ja">SAKURA BLOOM 2026 開催</span>
+                            <span class="lang-en font-serif">SAKURA BLOOM 2026 Opening Festival</span>
+                        </h4>
+                        <p class="lang-ja text-brandIvory/70 text-sm sm:text-base font-light">
+                            セブ島にて文化、極上エンタメ、とくに和のパワーフード「すた丼」が奇跡的に融合した一大祭典を現地で大成功に収める。
+                        </p>
+                        <p class="lang-en text-brandIvory/70 text-sm sm:text-base font-serif font-light">
+                            Successfully organized the monumental opening cultural festival in Cebu integrating music, art and food networks.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Milestone 3 -->
+                <div class="relative group reveal-element">
+                    <div class="absolute -left-[31px] sm:-left-[55px] top-1.5 w-4 h-4 sm:w-6 sm:h-6 rounded-full bg-brandNavy border-2 border-brandGold group-hover:border-brandSakura transition-colors duration-300 flex items-center justify-center">
+                        <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-brandGold rounded-full"></div>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold tracking-widest text-brandGold uppercase">2026.03.27</span>
+                        <h4 class="text-xl font-serif text-brandIvory-light font-semibold">
+                            <span class="lang-ja font-serif text-sakura-gradient">SUTADONYA CEBU グランドオープン</span>
+                            <span class="lang-en font-serif text-sakura-gradient">SUTADONYA CEBU Grand Opening</span>
+                        </h4>
+                        <p class="lang-ja text-brandIvory/70 text-sm sm:text-base font-light">
+                            マクタン・ニュータウンに常設一号店をオープン。地域の確たる信頼インフラを開拓。
+                        </p>
+                        <p class="lang-en text-brandIvory/70 text-sm sm:text-base font-serif font-light">
+                            Launched the prominent physical store in Mactan Newtown to construct an unshakeable standard of trust.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Milestone 4 -->
+                <div class="relative group reveal-element">
+                    <div class="absolute -left-[31px] sm:-left-[55px] top-1.5 w-4 h-4 sm:w-6 sm:h-6 rounded-full bg-brandNavy border-2 border-brandGold group-hover:border-brandSakura transition-colors duration-300 flex items-center justify-center">
+                        <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-brandGold rounded-full"></div>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold tracking-widest text-brandGold uppercase">2026.05</span>
+                        <h4 class="text-xl font-serif text-brandIvory-light font-semibold">
+                            <span class="lang-ja">ASEAN Summit 2026 を経て</span>
+                            <span class="lang-en font-serif">BEYOND ASEAN Summit 2026</span>
+                        </h4>
+                        <p class="lang-ja text-brandIvory/70 text-sm sm:text-base font-light">
+                            マクタン特区に世界の政治・経済リーダーの視線が集まる中、日本を背負う人道支援の双方向ゲートウェイとしての戦略的構想が強固に。
+                        </p>
+                        <p class="lang-en text-brandIvory/70 text-sm sm:text-base font-serif font-light">
+                            Aligned the geopolitical prominence of Mactan Newtown to structure our dual-direction Humanitarian Economy model.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Milestone 5 -->
+                <div class="relative group reveal-element">
+                    <div class="absolute -left-[31px] sm:-left-[55px] top-1.5 w-4 h-4 sm:w-6 sm:h-6 rounded-full bg-brandNavy border-2 border-brandGold group-hover:border-brandSakura transition-colors duration-300 flex items-center justify-center">
+                        <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-brandGold rounded-full"></div>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold tracking-widest text-brandGold uppercase">2026.06</span>
+                        <h4 class="text-xl font-serif text-brandIvory-light font-semibold">
+                            <span class="lang-ja">プロデュース現地法人「Flower Angel PH」設立</span>
+                            <span class="lang-en font-serif">Incorporation of "Flower Angel PH"</span>
+                        </h4>
+                        <p class="lang-ja text-brandIvory/70 text-sm sm:text-base font-light leading-relaxed">
+                            現地フィリピンでのプロジェクトプロデュースおよび実務を統括する正式な現地法人を設立。行政や地域との直接連携体制が完全構築。
+                            <span class="text-brandGold block mt-2 font-medium">UZU PHはHumanitarian Economy確立と人道支援促進実務の役割を担います。</span>
+                        </p>
+                        <p class="lang-en text-brandIvory/70 text-sm sm:text-base font-serif font-light leading-relaxed">
+                            Officially registered Flower Angel PH in the Philippines to directly execute and build administrative integrations. 
+                            <span class="text-brandGold block mt-2 font-medium">UZU PH plays a pivotal role in establishing the Humanitarian Economy and managing humanitarian relief operations.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Milestone 6 -->
+                <div class="relative group reveal-element">
+                    <div class="absolute -left-[31px] sm:-left-[55px] top-1.5 w-4 h-4 sm:w-6 sm:h-6 rounded-full bg-brandNavy border-2 border-brandGold group-hover:border-brandSakura transition-colors duration-300 flex items-center justify-center">
+                        <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-brandGold rounded-full"></div>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold tracking-widest text-brandSakura uppercase">2026.07.27</span>
+                        <h4 class="text-xl font-serif text-sakura-gradient font-semibold">
+                            <span class="lang-ja font-serif">毎月27日「Blooming Day」始動</span>
+                            <span class="lang-en font-serif">Monthly "Blooming Day" Commenced</span>
+                        </h4>
+                        <p class="lang-ja text-brandIvory/80 text-sm sm:text-base font-light">
+                            毎月27日は、UZU VILLAGEが美しく花開く「Blooming Day」。すた丼の直接支援配給を継続し、建設進捗、企業参画のストーリーを毎月ここにリアルタイムで刻み始めます。
+                        </p>
+                        <p class="lang-en text-brandIvory/80 text-sm sm:text-base font-serif font-light">
+                            Our ongoing focal point. Every 27th is the official Blooming Day to organize food relief and document infrastructure progress.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CO-CREATION MEMBER RECRUITMENT -->
+    <section class="py-24 bg-brandNavyLight/20 relative overflow-hidden border-t border-b border-brandIvory/10">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brandGold/5 rounded-full blur-[100px] pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
+                <span class="text-xs font-bold tracking-widest text-brandGold uppercase">CO-CREATION MEMBER RECRUITMENT</span>
+                <h2 class="text-3xl sm:text-4xl font-serif tracking-wide text-gold-gradient">
+                    <span class="lang-ja">セブの現場で、共に「経済」を動かす同志を募集</span>
+                    <span class="lang-en font-serif">Join Us in Cebu to Manifest True Solidarity</span>
+                </h2>
+                <p class="lang-ja text-brandIvory/70 font-light text-sm sm:text-base leading-relaxed">
+                    2026年7月から12月まで、毎月27日の「Blooming Day」にThe Mactan Newtownの現地に集い、一緒にすた丼を現地の学校、教会、孤児院、スラム街に配ってくれる人道支援や、ヴィレッジ構築の活動を共創してくれるメンバー（企業視察・クリエイター・プロデューサー・有志の仲間）を募集します。
+                </p>
+                <p class="lang-en text-brandIvory/70 font-serif font-light text-sm sm:text-base leading-relaxed">
+                    From July to December 2026, come to Cebu for "Blooming Day" on the 27th of each month. Deliver hot meals directly to local schools, churches, orphanages, and slum communities, and witness the growth of the UZU VILLAGE infrastructure.
+                </p>
+            </div>
+
+            <!-- Targeted Calendars Grid (6 Months Balanced Columns) -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16 reveal-element">
+                <!-- Jul -->
+                <div class="bg-brandNavyLight border border-brandIvory/10 hover:border-brandGold/50 rounded-2xl p-5 text-center transition-all duration-300">
+                    <span class="text-xs font-semibold text-brandGold block mb-2 uppercase">JULY 2026</span>
+                    <span class="text-4xl font-serif font-bold text-brandIvory-light block">27</span>
+                    <span class="text-xs text-brandIvory/50 block mt-1">Mon / 月曜日</span>
+                    <a href="#contact" class="mt-5 block bg-brandNavy/60 hover:bg-brandGold text-brandIvory-light hover:text-brandNavy py-2 rounded-full text-xs font-semibold transition-all duration-300">
+                        <span class="lang-ja">参画する</span>
+                        <span class="lang-en">Join</span>
+                    </a>
+                </div>
+                <!-- Aug -->
+                <div class="bg-brandNavyLight border border-brandIvory/10 hover:border-brandGold/50 rounded-2xl p-5 text-center transition-all duration-300">
+                    <span class="text-xs font-semibold text-brandGold block mb-2 uppercase">AUGUST 2026</span>
+                    <span class="text-4xl font-serif font-bold text-brandIvory-light block">27</span>
+                    <span class="text-xs text-brandIvory/50 block mt-1">Thu / 木曜日</span>
+                    <a href="#contact" class="mt-5 block bg-brandNavy/60 hover:bg-brandGold text-brandIvory-light hover:text-brandNavy py-2 rounded-full text-xs font-semibold transition-all duration-300">
+                        <span class="lang-ja">参画する</span>
+                        <span class="lang-en">Join</span>
+                    </a>
+                </div>
+                <!-- Sep -->
+                <div class="bg-brandNavyLight border border-brandIvory/10 hover:border-brandGold/50 rounded-2xl p-5 text-center transition-all duration-300">
+                    <span class="text-xs font-semibold text-brandGold block mb-2 uppercase">SEPTEMBER 2026</span>
+                    <span class="text-4xl font-serif font-bold text-brandIvory-light block">27</span>
+                    <span class="text-xs text-brandIvory/50 block mt-1">Sun / 日曜日</span>
+                    <a href="#contact" class="mt-5 block bg-brandNavy/60 hover:bg-brandGold text-brandIvory-light hover:text-brandNavy py-2 rounded-full text-xs font-semibold transition-all duration-300">
+                        <span class="lang-ja">参画する</span>
+                        <span class="lang-en">Join</span>
+                    </a>
+                </div>
+                <!-- Oct -->
+                <div class="bg-brandNavyLight border border-brandIvory/10 hover:border-brandGold/50 rounded-2xl p-5 text-center transition-all duration-300">
+                    <span class="text-xs font-semibold text-brandGold block mb-2 uppercase">OCTOBER 2026</span>
+                    <span class="text-4xl font-serif font-bold text-brandIvory-light block">27</span>
+                    <span class="text-xs text-brandIvory/50 block mt-1">Tue / 火曜日</span>
+                    <a href="#contact" class="mt-5 block bg-brandNavy/60 hover:bg-brandGold text-brandIvory-light hover:text-brandNavy py-2 rounded-full text-xs font-semibold transition-all duration-300">
+                        <span class="lang-ja">参画する</span>
+                        <span class="lang-en">Join</span>
+                    </a>
+                </div>
+                <!-- Nov -->
+                <div class="bg-brandNavyLight border border-brandIvory/10 hover:border-brandGold/50 rounded-2xl p-5 text-center transition-all duration-300">
+                    <span class="text-xs font-semibold text-brandGold block mb-2 uppercase">NOVEMBER 2026</span>
+                    <span class="text-4xl font-serif font-bold text-brandIvory-light block">27</span>
+                    <span class="text-xs text-brandIvory/50 block mt-1">Fri / 金曜日</span>
+                    <a href="#contact" class="mt-5 block bg-brandNavy/60 hover:bg-brandGold text-brandIvory-light hover:text-brandNavy py-2 rounded-full text-xs font-semibold transition-all duration-300">
+                        <span class="lang-ja">参画する</span>
+                        <span class="lang-en">Join</span>
+                    </a>
+                </div>
+                <!-- Dec -->
+                <div class="bg-brandNavyLight border border-brandIvory/10 hover:border-brandGold/50 rounded-2xl p-5 text-center transition-all duration-300">
+                    <span class="text-xs font-semibold text-brandGold block mb-2 uppercase">DECEMBER 2026</span>
+                    <span class="text-4xl font-serif font-bold text-brandIvory-light block">27</span>
+                    <span class="text-xs text-brandIvory/50 block mt-1">Sun / 日曜日</span>
+                    <a href="#contact" class="mt-5 block bg-brandNavy/60 hover:bg-brandGold text-brandIvory-light hover:text-brandNavy py-2 rounded-full text-xs font-semibold transition-all duration-300">
+                        <span class="lang-ja">参画する</span>
+                        <span class="lang-en">Join</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Value Propositions Grid -->
+            <div class="bg-brandNavyLight/40 border border-brandIvory/10 rounded-3xl p-8 sm:p-12 reveal-element">
+                <h3 class="text-xl sm:text-2xl font-serif text-brandIvory-light mb-10 text-center font-bold">
+                    <span class="lang-ja">参画する3つのメリット</span>
+                    <span class="lang-en font-serif">3 Major Benefits of Partnership</span>
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Point 1 -->
+                    <div class="space-y-3">
+                        <span class="text-xs font-semibold text-brandGold uppercase">01 / Testing & Inspection</span>
+                        <h4 class="text-lg font-serif font-semibold text-brandIvory-light">
+                            <span class="lang-ja">海外進出・出店のテストマーケティングと現地視察</span>
+                            <span class="lang-en font-serif">Global Test-Marketing & Site Inspection</span>
+                        </h4>
+                        <p class="lang-ja text-brandIvory/70 text-sm leading-relaxed font-light">
+                            本格的な大型投資を決断する前に、毎月の「Blooming Day」を活用して現地視察を行い、実際の環境や支援活動の現場を直接体験。セブ市民や現地顧客の目の前の生きたリアクションから最適の展開戦略を精査できます。
+                        </p>
+                        <p class="lang-en text-brandIvory/70 text-sm leading-relaxed font-serif font-light">
+                            Prior to executing major investments, you can participate in local site inspections during the monthly Blooming Day to experience the real operational playground firsthand. Evaluate optimal expansion strategies directly from the live reactions of Cebu residents.
+                        </p>
+                    </div>
+                    <!-- Point 2 -->
+                    <div class="space-y-3">
+                        <span class="text-xs font-semibold text-brandGold uppercase">02 / Trust Net</span>
+                        <h4 class="text-lg font-serif font-semibold text-brandIvory-light">
+                            <span class="lang-ja">「社会信頼インフラ」の直通共有</span>
+                            <span class="lang-en font-serif">Shared Social Infrastructure</span>
+                        </h4>
+                        <p class="lang-ja text-brandIvory/70 text-sm leading-relaxed font-light">
+                            UZU VILLAGEがフィリピンで徹底的に築き上げてきた、地元政府、教育機関、スラムの全コミュニティとの深い関係性とダイレクトな信頼のネットワークを活用し進出できます。
+                        </p>
+                        <p class="lang-en text-brandIvory/70 text-sm leading-relaxed font-serif font-light">
+                            Ride upon our firmly cultivated network of trust built with regional authorities, educational institutions, community elders, and localized business structures.
+                        </p>
+                    </div>
+                    <!-- Point 3 -->
+                    <div class="space-y-3">
+                        <span class="text-xs font-semibold text-brandGold uppercase">03 / Synergy</span>
+                        <h4 class="text-lg font-serif font-semibold text-brandIvory-light">
+                            <span class="lang-ja">ESG・人道共創ストーリーの構築</span>
+                            <span class="lang-en font-serif">Premium ESG & Co-creation</span>
+                        </h4>
+                        <p class="lang-ja text-brandIvory/70 text-sm leading-relaxed font-light">
+                            2027年のSAKURA BLOOM 2027グランドオープンへ向け、人道支援経済を共に実証し、動かす「初期コアメンバー」としての圧倒的な自社PR・ブランディングを形成できます。
+                        </p>
+                        <p class="lang-en text-brandIvory/70 text-sm leading-relaxed font-serif font-light">
+                            Position your brand as a founding pillar of the Humanitarian Economy movement leading up to 2027. Weaving pristine media documentation to enrich corporate social responsibility.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CREDITS & PARTNERS -->
+    <section class="py-24 bg-brandNavy border-b border-brandIvory/10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
+                <span class="text-xs font-bold tracking-widest text-brandGold uppercase">THE COLLABORATORS</span>
+                <h2 class="text-3xl sm:text-4xl font-serif tracking-wide text-gold-gradient">KEY LEADERS & ICON BRANDS</h2>
+                <p class="lang-ja text-brandIvory/60 font-light text-sm sm:text-base">人道支援経済を牽引する両輪のブランド</p>
+                <p class="lang-en text-brandIvory/60 font-serif font-light text-sm sm:text-base">The crucial engines driving the cultural and culinary economic platform</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Partner 1: Sutadonya -->
+                <div class="bg-brandNavyLight border border-brandIvory/10 hover:border-brandGold/30 rounded-3xl p-8 sm:p-12 space-y-6 flex flex-col justify-between reveal-element">
+                    <div class="space-y-4">
+                        <span class="text-xs font-semibold text-brandGold tracking-widest uppercase">
+                            <span class="lang-ja">人道支援経済 フードハブ</span>
+                            <span class="lang-en">Humanitarian Economy Food Hub</span>
+                        </span>
+                        <h3 class="text-2xl font-serif text-brandIvory-light font-bold">
+                            <span class="lang-ja">伝説のすた丼 SUTADONYA CEBU</span>
+                            <span class="lang-en">Legendary SUTADONYA CEBU</span>
+                        </h3>
+                        <p class="lang-ja text-brandIvory/80 text-sm sm:text-base leading-relaxed font-light">
+                            【UZU VILLAGE】の実体経済と人道支援の「食の基盤」を支える、本経済圏の偉大なる出発点。日本の圧倒的なパワーフードのDNAとセブ現地のコミュニティを融合させ、毎月27日の「Blooming Day」を通じて10,000食の配給を全力継続中。現地での圧倒的信頼のインフラとなり、日本企業が安全に展開していくための強力な海外展開足がかりとして機能します。
+                        </p>
+                        <p class="lang-en text-brandIvory/80 text-sm sm:text-base leading-relaxed font-serif font-light">
+                            The great starting point of this economic zone, supporting the physical economy and "food infrastructure" of humanitarian aid in UZU VILLAGE. Fusing Japan's overwhelming high-energy food DNA with Cebu's local community, we continue to deliver 10,000 meals through "Blooming Day" on the 27th of every month. It serves as an unshakeable infrastructure of trust in the region, acting as a powerful springboard for Japanese businesses to safely expand abroad.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-brandIvory/10 flex flex-wrap gap-4 items-center justify-between">
+                        <span class="text-xs text-brandIvory/50 font-serif">Primary Food Partner</span>
+                        <a href="https://www.facebook.com/sutadonyacebuph" target="_blank" class="inline-flex items-center space-x-2 text-xs text-brandGold hover:text-brandIvory transition-colors duration-300">
+                            <span>SUTADONYA CEBU Facebook</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Partner 2: Harmony -->
+                <div class="bg-brandNavyLight border border-brandIvory/10 hover:border-brandGold/30 rounded-3xl p-8 sm:p-12 space-y-6 flex flex-col justify-between reveal-element">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-semibold text-brandGold tracking-widest uppercase">Humanitarian Economy Icon Artist</span>
+                        </div>
+                        <h3 class="text-2xl font-serif text-brandIvory-light font-bold">Harmony <span class="text-sm font-light text-brandIvory/50">/ Artist</span></h3>
+                        <p class="lang-ja text-brandIvory/80 text-sm sm:text-base leading-relaxed font-light">
+                            音楽とエンターテインメントを通して人道的価値と世界平和を真に創り出す、専属の天才アーティスト。アフリカ・ウガンダの孤児としての逆境から、プロデューサーAngelと大富豪神様との奇跡の邂逅を経て夢を実現。
+                        </p>
+                        <p class="lang-en text-brandIvory/80 text-sm sm:text-base leading-relaxed font-serif font-light">
+                            A legendary icon devoted to bringing pure humanitarian message and world peace via celestial music. Rising from Uganda as an orphan, he fulfilled his destiny after meeting Producer Angel and his mentors.
+                        </p>
+                        
+                        <!-- Premium Info Block -->
+                        <div class="bg-brandNavy/60 p-5 rounded-xl border border-brandIvory/10 space-y-2">
+                            <span class="text-xs text-brandGold font-semibold uppercase tracking-wider block">【SAKURA BLOOM 2027 Special Release】</span>
+                            <p class="lang-ja text-xs text-brandIvory/70 leading-relaxed font-light">
+                                今後、ウガンダ現地のエボラ出血熱収束後にセブ島へ再度渡航予定。それまでの期間も「SAKURA BLOOM 2027」開催に向けて、毎月27日のBlooming Dayに彼の新曲を継続リリースしていきます。
+                            </p>
+                            <p class="lang-en text-xs text-brandIvory/70 leading-relaxed font-serif font-light">
+                                Post-Ebola containment, he will return to Cebu. Until then, he releases beautiful new music on the 27th of every month towards the grand opening of SAKURA BLOOM 2027.
+                            </p>
+                            <div class="pt-2 flex flex-wrap gap-4">
+                                <a href="https://flowerangel.org/sakurabloom2027" target="_blank" class="inline-flex items-center space-x-1.5 text-xs text-brandSakura hover:text-brandIvory transition-colors duration-300">
+                                    <span>Flower Angel Entertainment</span>
+                                    <i class="fa-solid fa-link"></i>
+                                </a>
+                                <a href="https://echoes-of-light.jp/" target="_blank" class="inline-flex items-center space-x-1.5 text-xs text-brandGold hover:text-brandIvory transition-colors duration-300">
+                                    <span>Echoes of Light Portal</span>
+                                    <i class="fa-solid fa-link"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <p class="lang-ja text-xs text-brandIvory/60 leading-relaxed font-light border-l border-brandGold/40 pl-3">
+                            <strong>【Echoes of Light パートナーシップ同時募集】</strong><br>
+                            「Echoes of Light」ブランドとして、彼の活動を支えるグローバルスポンサー、および現地でのプロモーションビデオ（PV）を共に制作したいクリエイターを募集しています。
+                        </p>
+                        <p class="lang-en text-xs text-brandIvory/60 leading-relaxed font-serif font-light border-l border-brandGold/40 pl-3">
+                            <strong>【Echoes of Light Partnership Campaign】</strong><br>
+                            Seeking global sponsors under "Echoes of Light" alongside creative videographers wanting to produce high-end promotional videos (PV) directly in Cebu.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-brandIvory/10 text-xs text-brandIvory/50 font-serif">
+                        Exclusive Co-Creator / Singer
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & MESSAGE (FOOTER) -->
+    <section id="contact" class="py-24 bg-gradient-to-b from-brandNavyLight/30 to-brandNavy relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-12">
+            
+            <!-- Producer Message -->
+            <div class="space-y-6 reveal-element">
+                <span class="text-xs font-semibold tracking-widest text-brandGold uppercase font-serif">PRODUCED BY FLOWER ANGEL</span>
+                <p class="lang-ja text-lg sm:text-2xl font-serif text-brandIvory leading-relaxed max-w-3xl mx-auto font-light">
+                    「The Mactan Newtownという世界への玄関口で、私たちが築くのは一過性の慈善活動ではなく、文化と技術と食が自立して循環する『人道支援経済』の<span class="text-brandGold font-normal font-serif">人間の幸福感のベースのための新しい経済の提唱です。</span><br><br>
+                    セブの現場には、<span class="text-brandGold font-normal font-serif">すでに多くのパートナーやスポンサーなど確固たる基盤があります。</span>日本が誇る素晴らしい技術や文化を、リスクなく世界へ羽ばたかせるためのプラットフォームは整いました。毎月27日、私たちは新しい太陽を昇らせます。この奇跡の夜明けを、共に創り上げる日本の同志をお待ちしています。」
+                </p>
+                <p class="lang-en text-lg sm:text-2xl font-serif text-brandIvory leading-relaxed max-w-3xl mx-auto font-light">
+                    "At the magnificent gateway of The Mactan Newtown, we are building not just localized charity, but advocating <span class="text-brandGold">a new economy supporting life's essentials for the base of human happiness</span> where food, technology, and culture rotate flawlessly.<br><br>
+                    Cebu already carries <span class="text-brandGold">solid foundations such as numerous partners and sponsors.</span> We have crafted a beautiful landing pad for Japanese brands to migrate globally risk-free. Every 27th, we pull up a new sun. We await your vision in this grand dawn."
+                </p>
+            </div>
+
+            <!-- Inquiry Details Panel -->
+            <div class="bg-[#112042] border border-brandGold/30 rounded-3xl p-8 sm:p-12 text-left space-y-8 max-w-3xl mx-auto reveal-element">
+                <div class="border-b border-brandIvory/10 pb-6 text-center lg:text-left">
+                    <span class="text-xs text-brandGold block mb-2 font-bold uppercase tracking-widest">
+                        <span class="lang-ja">■ お問い合わせ・現地参画エントリー窓口</span>
+                        <span class="lang-en font-serif">■ INQUIRY & MEMBERSHIP ENTRY PORTAL</span>
+                    </span>
+                    <h3 class="text-xl sm:text-2xl font-serif font-bold text-brandIvory-light">FLOWER ANGEL PH INC.</h3>
+                    <p class="lang-ja text-xs text-brandIvory/60 mt-1 font-sans">【UZU VILLAGE 参画・ショップ出店・現地共創メンバーに関するお問い合わせ】</p>
+                    <p class="lang-en text-xs text-brandIvory/60 mt-1 font-serif">【Inquiries regarding UZU VILLAGE partnership, shop entry, and local co-creation members】</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
+                    <div class="space-y-2">
+                        <span class="text-xs text-brandIvory/40 font-bold block uppercase tracking-wider font-serif">📩 Direct Email</span>
+                        <a href="mailto:info@flowerangelph.com" class="text-brandGold hover:text-brandIvory text-base sm:text-lg font-semibold block transition-all duration-300">
+                            info@flowerangelph.com
+                        </a>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="text-xs text-brandIvory/40 font-bold block uppercase tracking-wider font-serif">📍 Physical Headquarters</span>
+                        <p class="text-brandIvory/80 leading-relaxed text-xs sm:text-sm font-light">
+                            A1 Ground Level, La Victoria Global Residences,<br>
+                            The Mactan Newtown, Mactan, Lapu-Lapu City,<br>
+                            Cebu, 6015, The Philippines
+                        </p>
+                    </div>
+                </div>
+
+                <div class="pt-6 border-t border-brandIvory/10 text-center">
+                    <a href="mailto:info@flowerangelph.com" class="inline-flex items-center space-x-3 bg-gradient-to-r from-brandGold to-brandIvory hover:from-brandIvory hover:to-white text-brandNavy font-bold px-8 py-3.5 rounded-full text-sm tracking-widest uppercase transition-all duration-300 shadow-md">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span class="lang-ja">メールで問い合わせる</span>
+                        <span class="lang-en font-serif">Send Email</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Global Footer Links & Official Socials -->
+            <div class="pt-12 border-t border-brandIvory/10 space-y-6">
+                <!-- SUTADONYA CEBU FB Link -->
+                <div class="text-center">
+                    <a href="https://www.facebook.com/sutadonyacebuph" target="_blank" class="inline-flex items-center space-x-2 text-xs text-brandGold hover:text-brandIvory transition-colors duration-300">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <span>SUTADONYA CEBU Facebook Page</span>
+                    </a>
+                </div>
+
+                <!-- Official UZU WORLD SNS Icon Channels (At the very end of footer) -->
+                <div class="flex items-center justify-center space-x-6 text-xl sm:text-2xl pt-2">
+                    <a href="https://www.youtube.com/channel/UC4jLmOuuTPaAqWDZa5R9kMg" target="_blank" class="text-brandIvory/60 hover:text-red-400 transition-colors duration-300" title="YouTube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61585342990076" target="_blank" class="text-brandIvory/60 hover:text-blue-400 transition-colors duration-300" title="Facebook">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/uzu_world/" target="_blank" class="text-brandIvory/60 hover:text-pink-400 transition-colors duration-300" title="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@uzu_world" target="_blank" class="text-brandIvory/60 hover:text-white transition-colors duration-300" title="TikTok">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                </div>
+
+                <!-- Copyright and Brand Affiliation -->
+                <div class="text-[10px] sm:text-xs text-brandIvory/40 space-y-2 pt-4">
+                    <p class="tracking-widest text-brandGold/60 font-serif text-xs sm:text-sm font-medium mb-1 uppercase">SAKURA BLOOM 2027</p>
+                    <p class="tracking-widest">UZU WORLD | UZUSHIO Holdings × UZU PH</p>
+                    <p>&copy; 2026 FLOWER ANGEL PH INC. All Rights Reserved.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Language state manager
+        let currentLang = 'ja';
+
+        function toggleLanguage() {
+            const container = document.body;
+            // Elegant smooth transition blink
+            container.style.opacity = '0.7';
+            container.style.transform = 'scale(0.998)';
+            
+            setTimeout(() => {
+                if (currentLang === 'ja') {
+                    currentLang = 'en';
+                    document.documentElement.setAttribute('lang', 'en');
+                } else {
+                    currentLang = 'ja';
+                    document.documentElement.setAttribute('lang', 'ja');
+                }
+                
+                container.style.opacity = '1';
+                container.style.transform = 'scale(1)';
+            }, 150);
+        }
+
+        // Intersection Observer for scroll-reveal effect
+        document.addEventListener("DOMContentLoaded", function() {
+            const elementsToReveal = document.querySelectorAll('.reveal-element');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elementsToReveal.forEach(el => observer.observe(el));
+        });
+
+        // Initialize state on load
+        window.onload = function () {
+            document.documentElement.setAttribute('lang', currentLang);
+        }
+    </script>
+</body>
+</html>
